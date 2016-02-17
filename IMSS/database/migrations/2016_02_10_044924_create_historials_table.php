@@ -22,6 +22,7 @@ class CreateHistorialsTable extends Migration
             $table->float('cintura');
             $table->float('cadera');
             $table->float('circunferencia');
+            $table->float('perimetro_abdominal');
             $table->boolean('ejercicio');
             $table->timestamps();
         });

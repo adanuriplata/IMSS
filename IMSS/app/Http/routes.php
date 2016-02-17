@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +25,10 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('/nuevo-usuario', 'MainController@index');
+
+    Route::post('/historial/guardar','MainController@historial');
+    Route::get('/','MainController@busqueda');
+    Route::post('/paciente/buscar/','MainController@buscar');
+    Route::post('/paciente/guardar/consulta','MainController@datosHistorial');
 });

@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{asset('semantic.css')}}">
     <script src="{{asset('jquery-1.12.0.min.js')}}"></script>
     <script src="{{asset('semantic.js')}}"></script>
+
+ <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
     @yield('scripts')
     <style>
         #menu{
@@ -22,9 +26,9 @@
         <div class="item">
             <img src="{{url('logo-imss.png')}}">
         </div>
-        <a class="item active">Features</a>
-        <a class="item">Testimonials</a>
-        <a class="item">Sign-in</a>
+        <a class="item active">Nombre</a>
+        <a class="item">Perfil</a>
+        <a class="item">Logout</a>
     </div>
 
     <div class="ui grid">
@@ -32,32 +36,16 @@
             <div class="ui container" >
                 <div class="ui vertical menu" id="menu">
                     <div class="item">
-                        <div class="header">Products</div>
+                        <div class="header">Consultas</div>
                         <div class="menu">
-                            <a class="item">Enterprise</a>
-                            <a class="item">Consumer</a>
+                            <a class="item" href="{{url('/')}}">Buscar Paciente</a>
+                            
                         </div>
                     </div>
                     <div class="item">
-                        <div class="header">CMS Solutions</div>
+                        <div class="header"></div>
                         <div class="menu">
-                            <a class="item">Rails</a>
-                            <a class="item">Python</a>
-                            <a class="item">PHP</a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="header">Hosting</div>
-                        <div class="menu">
-                            <a class="item">Shared</a>
-                            <a class="item">Dedicated</a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="header">Support</div>
-                        <div class="menu">
-                            <a class="item">E-mail Support</a>
-                            <a class="item">FAQs</a>
+
                         </div>
                     </div>
                 </div>

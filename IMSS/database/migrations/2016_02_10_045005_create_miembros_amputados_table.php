@@ -14,7 +14,7 @@ class CreateMiembrosAmputadosTable extends Migration
     {
         Schema::create('miembros_amputados', function (Blueprint $table) {
             $table->increments('id');
-            //$table->integer()->unsigned();
+
             $table->float('peso');
             $table->string('nombre');
 

@@ -17,7 +17,8 @@ class CreateDatosGeneralesTable extends Migration
             $table->string('nombre');
             $table->string('paterno');
             $table->string('materno');
-            $table->date('fecha_nacimiento');
+            $table->string('nss')->unique();
+            $table->string('fecha_nacimiento');
             $table->boolean('sexo');
             $table->string('escolaridad');
             $table->string('ocupacion');
@@ -25,7 +26,7 @@ class CreateDatosGeneralesTable extends Migration
             $table->integer('num_familia_ninios');
             $table->timestamps();
         });
-        
+
 
     }
 
