@@ -69,7 +69,7 @@
             <h3 class="ui dividing header">Datos del paciente: </h3>
             @foreach($paciente as $p)
                 <div class="ui container" id="datos-paciente">
-                    <input type="hidden" name="id" value="{{$p->id}}">
+
                     <p><strong>Nombre completo:</strong>{{$p->nombre." ".$p->paterno." ".$p->materno}}</p>
                     <p><strong>NSS:</strong> {{$p->nss}}</p>
                     <p><strong>Fecha nacimiento:</strong> {{$p->fecha_nacimiento}}</p>
@@ -84,6 +84,9 @@
             <form action="{{url('/paciente/guardar/consulta')}}" class="ui form" method="post">
                 <div class="ui stacked segment">
                     {!! csrf_field() !!}
+                    @foreach($paciente as $p)
+                        <input type="hidden" name="id" value="{{$p->id}}">
+                    @endforeach
                     <div class="field">
                         <label for="">Peso Actual</label>
                         <input type="text" class="two wide field" id="pesoAc" name="PesoActual">
@@ -152,25 +155,25 @@
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Bajo Peso</label>
-                                    <input type="checkbox" name="" id="bajoPeso">
+                                    <input type="checkbox" name="antecedentes[]" value="BajoPeso" >
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Sobrepeso</label>
-                                    <input type="checkbox" name="sobrepeso" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="Sobrepeso">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Desnutrición</label>
-                                    <input type="checkbox" name="desnutricion" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="Desnutricion">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Obesidad</label>
-                                    <input type="checkbox" name="obesidad" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="Obesidad">
                                 </div>
                             </div>
                         </div>
@@ -178,25 +181,25 @@
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Hipertension</label>
-                                    <input type="checkbox" name="hipertension" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="hipertension">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Diabetes</label>
-                                    <input type="checkbox" name="diabetes" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="diabetes">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Cardiopatia(s)</label>
-                                    <input type="checkbox" name="cardiopatia" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="cardiopatia">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Neuropatia(s)</label>
-                                    <input type="checkbox" name="neuropatia" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="neuropatia">
                                 </div>
                             </div>
                         </div>
@@ -204,19 +207,19 @@
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Cancer</label>
-                                    <input type="checkbox" name="cancer" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="cancer">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Gastritis</label>
-                                    <input type="checkbox" name="gastritis" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="gastritis">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Colitis</label>
-                                    <input type="checkbox" name="colitis" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="colitis">
                                 </div>
                             </div>
                         </div>
@@ -224,25 +227,25 @@
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Alcoholismo</label>
-                                    <input type="checkbox" name="alcoholismo" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="alcoholismo">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Tabaquismo</label>
-                                    <input type="checkbox" name="tabaquismo" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="tabaquismo">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Alergias</label>
-                                    <input type="checkbox" name="alergias" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="alergias">
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui checkbox">
                                     <label for="">Medicamentos</label>
-                                    <input type="checkbox" name="medicamentos" id="">
+                                    <input type="checkbox" name="antecedentes[]" value="medicamentos">
                                 </div>
                             </div>
 
