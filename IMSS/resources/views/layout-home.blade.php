@@ -31,15 +31,16 @@
         <a class="item">Logout</a>
     </div>
 
-    <div class="ui grid">
+    <div class="ui stackable grid">
         <div class="three wide column">
+            <!--<div class="ui vertical inverted sidebar menu left"></div>-->
             <div class="ui container" >
                 <div class="ui vertical menu" id="menu">
                     <div class="item">
                         <div class="header">Consultas</div>
                         <div class="menu">
                             <a class="item" href="{{url('/')}}">Buscar Paciente</a>
-                            
+
                         </div>
                     </div>
                     <div class="item">

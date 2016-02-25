@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 
 class MainController extends Controller
@@ -38,13 +39,13 @@ class MainController extends Controller
     }
     public function datosHistorial(Request $request){
         $this->validate($request,[
-            'PesoActual'=>'required',
-            'PesoHabitual'=>'required',
-            'Estatura'=>'required',
-            'Cintura'=>'required',
-            'Cadera'=>'required',
-            'PerimetroAbdominal'=>'required',
-            'CircunferenciaMuneca'=>'required',
+            'PesoActual'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'PesoHabitual'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'Estatura'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'Cintura'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'Cadera'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'PerimetroAbdominal'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'CircunferenciaMuneca'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
         ]);
         historial::create([
             'id_datos_generales'=>$request->input('id'),
@@ -58,7 +59,8 @@ class MainController extends Controller
             'ejercicio'=>$request->input('ejercicio'),
 
         ]);
-
+        $exito="Consulta guardada con exito";
+        return view('home.busqueda',['exito'=>$exito]);
     }
     /**
      * @param Request $request
@@ -67,19 +69,18 @@ class MainController extends Controller
     public function historial(Request $request){
 
         $this->validate($request,[
-            'Nombre'=>'required',
-            'Paterno'=>'required',
-            'Materno'=>'required',
+            'Nombre'=>'required|string',
+            'Paterno'=>'required|string',
+            'Materno'=>'required|string',
             'Nss'=>'required|unique:datos_generales,nss',
-            //'FechaNacimiento'=>'required',
             'Genero'=>'required',
-            'PesoActual'=>'required',
-            'PesoHabitual'=>'required',
-            'Estatura'=>'required',
-            'Cintura'=>'required',
-            'Cadera'=>'required',
-            'PerimetroAbdominal'=>'required',
-            'CircunferenciaMuneca'=>'required',
+            'PesoActual'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'PesoHabitual'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'Estatura'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'Cintura'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'Cadera'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'PerimetroAbdominal'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
+            'CircunferenciaMuneca'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
             'Escolaridad'=>'required',
             'Ocupacion'=>'required'
 
@@ -119,7 +120,7 @@ class MainController extends Controller
 
         }
 
-        return "lo hizo compa :,v";
+        return view('/');
 
 
 

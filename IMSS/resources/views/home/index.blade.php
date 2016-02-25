@@ -18,23 +18,29 @@
                 var peso=$("#pesoAc").val();
                 var estatura=$("#estatura").keyup().val();
                 var pesoTeorico=21.5*Math.pow(estatura,2);
-
-                $("#porPesoT").html((peso/pesoTeorico)*100);
+                var porPesoT=(peso/pesoTeorico)*100;
+                $("#porPesoT").html(porPesoT.toFixed(2)+" "+"%");
 
                 var pesoHab=$("#pesoHab").keyup().val();
-                $("#porPesoHab").html((peso/pesoHab)*100);
+                var porPesoT=(peso/pesoHab)*100;
+                $("#porPesoHab").html(porPesoT.toFixed(2)+" "+"%");
 
-                $("#ppci").html((peso/pesoTeorico)*100);
+                var ppci=(peso/pesoTeorico)*100;
+                $("#ppci").html(ppci.toFixed(2)+" "+"%");
             });
 
             $("#estatura").keyup(function(){
                 var estatura=$("#estatura").val();
-                $("#PesoTeorico").html(21.5*Math.pow(estatura,2));
-                $("#RangoInferior").html(18.5*Math.pow(estatura,2));
-                $("#RangoSuperior").html(24.9*Math.pow(estatura,2));
+                var pesoTeorico=21.5*Math.pow(estatura,2);
+                var rangoInf=18.5*Math.pow(estatura,2);
+                var rangoSup=24.9*Math.pow(estatura,2);
+                $("#PesoTeorico").html(pesoTeorico.toFixed(2)+" "+"Kg's");
+                $("#RangoInferior").html(rangoInf.toFixed(2)+" "+"Kg's");
+                $("#RangoSuperior").html(rangoSup.toFixed(2)+" "+"Kg's");
                 $("#pesoAc").keyup(function(){
                     var pesoAc=$("#pesoAc").val();
-                    $("#imc").html(pesoAc/Math.pow(estatura,2));
+                    var imc=pesoAc/Math.pow(estatura,2);
+                    $("#imc").html(imc.toFixed(2)+" "+"Kg's/m");
                 });
             });
             $("#cintura").keyup(function(){
@@ -131,9 +137,9 @@
         </h1>
         <div class="ui attached message">
             <div class="header">
-                INSTITUTO MEXICANO DEL SEGURO SOCIAL <br>
-                HOSPITAL GENERAL REGIONAL 36 <br>
-                DEPARTAMENTO DE NUTRICION Y DIETETICA <br>
+                Instituto Mexicano Del Seguro Social <br>
+                Hospital General Regional #36 <br>
+                Departamento de Nutrición Y Dietetica <br>
             </div>
             <p></p>
         </div>
@@ -158,290 +164,326 @@
                         <input type="text" name="Nss" placeholder="NSS">
                     </div>
                 </div>
-            </div>
-
-      <div class="ui stacked segment">          
-                <h4>Fecha de Nacimiento</h4>
-            <div class="fields" >
-
-                <div class="field">
-                    <label>Dia</label>
-                    <select class="" name="dia">
-                        @for($i=1;$i<=31;$i++)
-                            <option value="{{$i}}">{{$i}}</option>
-                        @endfor
-                    </select>
-                </div>
-                <div class="field">
-                    <label for="">Mes</label>
-                    <select class="" name="mes">
-                        @for($i=1;$i<=12;$i++)
-                            <option value="{{$i}}">{{$i}}</option>
-                        @endfor
-                    </select>
-                </div>
-                <div class="field">
-                    <label for="">Año</label>
-                    <select class="" name="anio">
-                        @for($i=2016;$i>=1930;$i--)
-                            <option value="{{$i}}">{{$i}}</option>
-                        @endfor
-                    </select>
-                </div>
-
-            </div>
-
-
-  <div class="ui two column divided grid">
-  <div class="stretched row">
-    <div class="column">
-     <div class="ui segment">
-       <label>Sexo</label>
-                <select class="four wide field" id="genero" name="Genero">
-                    <option value="1">Masculino</option>
-                    <option value="0">Femenino</option>
-                </select>
-    </div>
-      <div class="ui segment">
-      <label for="">Peso Actual</label>
-                <input type="text" class="four wide field" id="pesoAc" name="PesoActual">
-    </div>
-    <div class="ui segment">
-      <label for="">Peso Habitual</label>
-                <input type="text" class="four wide field" id="pesoHab" name="PesoHabitual">
-    </div>
-    </div>
-    <div class="column">
-      <div id="grafica" class="ui segment">
-       
-    </div>
-      </div>
-  </div>
-  </div>
-           
-
-</div>
-         
-          
-
- <div class="ui stacked segment">  
-  <div class="field">
-               <h4>Peso teorico ideal: <p id="PesoTeorico"></p> </h4>
-            </div>
-            <div class="field">
-               <h4> Rango inferior: <p id="RangoInferior"></p></h4>
-            </div>
-            <div class="field">
-                <h4>Rango superior: <p id="RangoSuperior"></p></h4>
-            </div>
-            <div class="field">
-               <h4>% De peso teorico: <p id="porPesoT"></p></h4>
-            </div>
-            <div class="field">
-               <h4>% De peso habitual: <p id="porPesoHab"></p></h4>
-            </div>
-
- </div>
-
-           
-            <div class="field">
-                <label for="">Estatura</label>
-                <input type="text" class="three wide field" name="Estatura" id="estatura">
-            </div>
-            <div class="field">
-                <h4>IMC: <p id="imc"></p></h4>
-            </div>
-            <div class="field">
-                <h4>P.P.C.I : <p id="ppci"></p> </h4>
-            </div>
-            <div class="field">
-                <h4>Clasificación: <p></p> </h4>
-            </div>
-            <div class="field">
-                <label for="">Cintura</label>
-                <input type="text" class="three wide field" name="Cintura" id="cintura">
-            </div>
-            <div class="field">
-                <label for="">Cadera</label>
-                <input type="text" class="three wide field" name="Cadera" id="cadera">
-            </div>
-            <div class="field">
-                <h4>I.C.C : <p id="icc"></p> </h4>
-            </div>
-            <div class="field">
-                <label for="">Perimetro Abdominal</label>
-                <input type="text" class="three wide field" name="PerimetroAbdominal">
-            </div>
-            <div class="field">
-                <label for="">Circunferencia Muñeca</label>
-                <input type="text" class="three wide field" name="CircunferenciaMuneca">
-            </div>
-            <div class="field">
-                <label for="">Miembros amputados</label>
-                <select  class="three wide field" id="miembros" name="MiembrosAmputados">
-                    @foreach($miembrosAmp as $ma)
-                        <option value="{{$ma->peso}}">{{$ma->nombre}}</option>
-                    @endforeach
-                </select>
-
-            </div>
-            <div class="field">
-                <h4>Peso corregido: <p></p></h4>
-            </div>
-           
-
-            <div class="ui stacked segment">
-            <div class="stretched row">
-                <div class="column"> 
-            <h4>N° de Familia: </h4>
-            <div class="ui segment">
-                <label for="">Adultos</label>
-                <input type="text" class="two wide field" name="adultos">
-            </div>
-            <div class="ui segment">
-                <label for="">Niños</label>
-                <input type="text" class="two wide field" name="ninios">
-            </div>
-            <div class="ui segment">
-                <label for="">Ejercicio</label>
-                <select name="ejercicio" id="">
-                    <option value="1">Si</option>
-                    <option value="0">No</option>
-                </select>
-            </div>
-        </div>
-        <div class="column">
-             <div class="ui segment">
-                <label for="">Escolaridad</label>
-                <select name="Escolaridad" id="escolaridad" class="three wide field">
-                    <option value="primaria">Primaria</option>
-                    <option value="secundaria">Secundaria</option>
-                    <option value="bachiller">Bachiller</option>
-                    <option value="tecnico">Tecnico</option>
-                </select>
-            </div>
-            <div class="ui segment">
-                <label for="">Ocupación</label>
-                <select name="Ocupacion" id="ocupacion" class="three wide field">
-                    <option value="pensionado">Pensionado(a)</option>
-                    <option value="comerciante">Comerciante</option>
-                    <option value="ama de casa">Ama de casa</option>
-                    <option value="empleado">Empleado(a)</option>
-                    <option value="campo">Campo</option>
-                </select>
-            </div>
-        </div>
-    </div>
-</div>
-
-             <div class="ui stacked segment">  
-            <h3>Antecedentes: </h3>
-            <div class="ui equal width stretched grid">
-                <div class="column">
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Bajo Peso</label>
-                                <input type="checkbox" name="" id="bajoPeso">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Sobrepeso</label>
-                                <input type="checkbox" name="sobrepeso" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Desnutrición</label>
-                                <input type="checkbox" name="desnutricion" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Obesidad</label>
-                                <input type="checkbox" name="obesidad" id="">
-                            </div>
-                        </div>
-                </div>
-                <div class="column">
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Hipertension</label>
-                                <input type="checkbox" name="hipertension" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Diabetes</label>
-                                <input type="checkbox" name="diabetes" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Cardiopatia(s)</label>
-                                <input type="checkbox" name="cardiopatia" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Neuropatia(s)</label>
-                                <input type="checkbox" name="neuropatia" id="">
-                            </div>
-                        </div>
-                </div>
-                <div class="column">
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Cancer</label>
-                                <input type="checkbox" name="cancer" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Gastritis</label>
-                                <input type="checkbox" name="gastritis" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Colitis</label>
-                                <input type="checkbox" name="colitis" id="">
-                            </div>
-                        </div>
-                </div>
-                <div class="column">
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Alcoholismo</label>
-                                <input type="checkbox" name="alcoholismo" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Tabaquismo</label>
-                                <input type="checkbox" name="tabaquismo" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Alergias</label>
-                                <input type="checkbox" name="alergias" id="">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui checkbox">
-                                <label for="">Medicamentos</label>
-                                <input type="checkbox" name="medicamentos" id="">
-                            </div>
-                        </div>
-
-                </div>
-            </div>
-        </div>
                 <br>
-            <input type="submit" class="ui fluid large teal submit button" value="Guardar">
+                <strong>Fecha de Nacimiento</strong>
+                <br><br>
+                <div class="fields" >
 
+                    <div class="field">
+                        <label>Dia</label>
+                        <select class="" name="dia">
+                            @for($i=1;$i<=31;$i++)
+                                <option value="{{$i}}">{{$i}}</option>
+                            @endfor
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="">Mes</label>
+                        <select class="" name="mes">
+                            @for($i=1;$i<=12;$i++)
+                                <option value="{{$i}}">{{$i}}</option>
+                            @endfor
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="">Año</label>
+                        <select class="" name="anio">
+                            @for($i=2016;$i>=1930;$i--)
+                                <option value="{{$i}}">{{$i}}</option>
+                            @endfor
+                        </select>
+                    </div>
+                </div>
+                <div class="fields">
+                    <div class="field">
+                        <label>Sexo</label>
+                        <select class="four wide field" id="genero" name="Genero">
+                            <option value="1">Masculino</option>
+                            <option value="0">Femenino</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="">Escolaridad</label>
+                        <select name="Escolaridad" id="escolaridad" class="three wide field">
+                            <option value="primaria">Primaria</option>
+                            <option value="secundaria">Secundaria</option>
+                            <option value="bachiller">Bachiller</option>
+                            <option value="tecnico">Tecnico</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="">Ocupación</label>
+                        <select name="Ocupacion" id="ocupacion" class="three wide field">
+                            <option value="pensionado">Pensionado(a)</option>
+                            <option value="comerciante">Comerciante</option>
+                            <option value="ama de casa">Ama de casa</option>
+                            <option value="empleado">Empleado(a)</option>
+                            <option value="campo">Campo</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <strong>N° de Familia: </strong>
+                <br><br>
+                <div class="fields">
+                    <div class="field">
+                        <label for="">Adultos</label>
+                        <input type="text" class="" name="adultos">
+                    </div>
+                    <div class="field">
+                        <label for="">Niños</label>
+                        <input type="text" class="" name="ninios">
+                    </div>
+                </div>
             </div>
+            <div class="ui stacked segment">
+              <div class="ui four column stackable divided grid">
+                  <div class="stretched row">
+                        <div class="column">
+                            <div class="ui segment">
+                                <div class="field">
+                                    <label for="">Estatura</label>
+                                    <div class="ui right labeled input">
+                                        <input type="text" class="three wide field" name="Estatura" id="estatura">
+                                        <div class="ui basic label">
+                                            m
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="">Peso Habitual</label>
+                                    <div class="ui right labeled input">
+                                        <input type="text" class="three wide field" id="pesoHab" name="PesoHabitual">
+                                        <div class="ui basic label">
+                                            kg's
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="">Peso Actual</label>
+                                    <div class="ui right labeled input">
+                                        <input type="text" class="three wide field" id="pesoAc" name="PesoActual">
+                                        <div class="ui basic label">
+                                            kg's
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="">Cintura</label>
+                                    <div class="ui right labeled input">
+                                        <input type="text" class="three wide field" name="Cintura" id="cintura">
+                                        <div class="ui basic label">
+                                            cm's
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="">Cadera</label>
+                                    <div class="ui right labeled input">
+                                        <input type="text" class="three wide field" name="Cadera" id="cadera">
+                                        <div class="ui basic label">
+                                            cm's
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="">Perimetro Abdominal</label>
+                                    <div class="ui right labeled input">
+                                        <input type="text" class="three wide field" name="PerimetroAbdominal">
+                                        <div class="ui basic label">
+                                            cm's
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="">Circunferencia Muñeca</label>
+                                    <div class="ui right labeled input">
+                                        <input type="text" class="three wide field" name="CircunferenciaMuneca">
+                                        <div class="ui basic label">
+                                            cm's
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="">Miembros amputados</label>
+                                    <select  class="two wide field" id="miembros" name="MiembrosAmputados">
+                                        <option value="0">Ninguno</option>
+                                        @foreach($miembrosAmp as $ma)
+                                            <option value="{{$ma->peso}}">{{$ma->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="">Ejercicio</label>
+                                    <select name="ejercicio" id="" class="">
+                                        <option value="1">Si</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="twelve wide column">
+                            <div class="two column row">
+                                <div class="column">
+                                    <div id="grafica" class="ui segment"> </div>
+                                </div>
+                                <hr>
+                                <div class="column">
+                                    <div class="ui fluid segment">
+                                        <div class="field">
+                                            <h4>Peso teorico ideal: <p id="PesoTeorico"></p> </h4>
+                                        </div>
+                                        <div class="field">
+                                            <h4> Rango inferior: <p id="RangoInferior"></p></h4>
+                                        </div>
+                                        <div class="field">
+                                            <h4>Rango superior: <p id="RangoSuperior"></p></h4>
+                                        </div>
+                                        <div class="field">
+                                            <h4>% De peso teorico: <p id="porPesoT"></p></h4>
+                                        </div>
+                                        <div class="field">
+                                            <h4>% De peso habitual: <p id="porPesoHab"></p></h4>
+                                        </div>
+                                        <div class="field">
+                                            <h4>IMC: <p id="imc"></p></h4>
+                                        </div>
+                                        <div class="field">
+                                            <h4>P.P.C.I : <p id="ppci"></p> </h4>
+                                        </div>
+                                        <div class="field">
+                                            <h4>Clasificación: <p></p> </h4>
+                                        </div>
+
+                                        <div class="field">
+                                            <h4>I.C.C : <p id="icc"></p> </h4>
+                                        </div>
+
+                                        <div class="field">
+                                            <h4>Peso corregido: <p></p></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+        </div>
+
+         <div class="ui stacked segment">
+             <h2 class="ui dividing center aligned header">
+                 Antecedentes Clinicos
+             </h2>
+             <div class="ui equal width stretched stackable grid">
+
+                 <div class="column">
+                     <h4>Nutricionales</h4>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Bajo Peso</label>
+                             <input type="checkbox" name="antecedentes[]" value="BajoPeso" >
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Sobrepeso</label>
+                             <input type="checkbox" name="antecedentes[]" value="Sobrepeso">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Desnutrición</label>
+                             <input type="checkbox" name="antecedentes[]" value="Desnutricion">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Obesidad</label>
+                             <input type="checkbox" name="antecedentes[]" value="Obesidad">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="column">
+                     <h4>Patologicos</h4>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Hipertension</label>
+                             <input type="checkbox" name="antecedentes[]" value="hipertension">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Diabetes</label>
+                             <input type="checkbox" name="antecedentes[]" value="diabetes">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Cardiopatia(s)</label>
+                             <input type="checkbox" name="antecedentes[]" value="cardiopatia">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Neuropatia(s)</label>
+                             <input type="checkbox" name="antecedentes[]" value="neuropatia">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="column">
+                     <h4>Hereditarios</h4>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Cancer</label>
+                             <input type="checkbox" name="antecedentes[]" value="cancer">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Gastritis</label>
+                             <input type="checkbox" name="antecedentes[]" value="gastritis">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Colitis</label>
+                             <input type="checkbox" name="antecedentes[]" value="colitis">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="column">
+                     <h4>Otros</h4>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Alcoholismo</label>
+                             <input type="checkbox" name="antecedentes[]" value="alcoholismo">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Tabaquismo</label>
+                             <input type="checkbox" name="antecedentes[]" value="tabaquismo">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Alergias</label>
+                             <input type="checkbox" name="antecedentes[]" value="alergias">
+                         </div>
+                     </div>
+                     <div class="field">
+                         <div class="ui checkbox">
+                             <label for="">Medicamentos</label>
+                             <input type="checkbox" name="antecedentes[]" value="medicamentos">
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+         <br>
+         <input type="submit" class="ui fluid large teal submit button" value="Guardar">
 
         </form>
         @if (count($errors) > 0)
@@ -457,7 +499,6 @@
                         @endforeach
                     </ul>
             </div>
-
         @endif
-    </div>
+
 @endsection

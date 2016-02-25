@@ -7,7 +7,17 @@
 
 @section('contenido')
     <div class="ui container">
+        @if(isset($exito))
+            <div class="ui success message">
+                <i class="close icon"></i>
+                <div class="header">
+                    {{$exito}}
+                </div>
+                <p></p>
+            </div>
+        @endif
         <div class="ui stacked segment">
+
             <form action="{{url('/paciente/buscar/')}}" method="post" class="ui form">
                 {!! csrf_field() !!}
                 <div class="field">
@@ -40,4 +50,14 @@
             @endif
         </div>
     </div>
+    <script>
+        $('.message .close')
+                .on('click', function() {
+                    $(this)
+                            .closest('.message')
+                            .transition('fade')
+                    ;
+                })
+        ;
+    </script>
 @endsection
