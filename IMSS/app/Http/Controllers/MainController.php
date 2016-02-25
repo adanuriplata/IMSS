@@ -61,10 +61,6 @@ class MainController extends Controller
         ]);
         $exito="Consulta guardada con exito";
         return view('home.busqueda',['exito'=>$exito]);
-        /*$antecedentes=implode(",", $request->get('antecedentes'));
-        return $antecedentes;*/
-
-
     }
     /**
      * @param Request $request
