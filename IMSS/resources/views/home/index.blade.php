@@ -4,6 +4,12 @@
     div>h4>p{
         display: inline;
     }
+    #analisis>table{
+        width: 600px;
+    }
+    th{
+        width: 40px;
+    }
 </style>
 @section('scripts')
     <script>
@@ -483,6 +489,144 @@
              </div>
          </div>
          <br>
+         <div class="ui stacked segment" id="analisis">
+             <h2 class="ui center aligned dividing header">Analisis de Laboratorio</h2>
+             <h3>Perfil Hematologico</h3>
+             <table class="ui small celled definition table" >
+                 <thead>
+                     <tr>
+                         <th></th>
+                         <th>Referencia</th>
+                         <th>Unidades</th>
+                         <th>Dato</th>
+                         <th>Diagnostico</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>Hemoglobina</td>
+                         <td>12.0-16.0</td>
+                         <td>g/dl</td>
+                         <td><input type="text"></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td>Hematrocitos</td>
+                         <td>36.0-47</td>
+                         <td>%</td>
+                         <td><input type="text"></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td>Leucocitos</td>
+                         <td>4000-11200</td>
+                         <td>cel/mm</td>
+                         <td><input type="text"></td>
+                         <td></td>
+                     </tr>
+                 </tbody>
+             </table>
+             <h3>Perfil Bioquímico</h3>
+             <table class="ui small celled definition table">
+                 <thead>
+                     <tr>
+                         <th></th>
+                         <th>Referencia</th>
+                         <th>Unidades</th>
+                         <th>Dato</th>
+                         <th>Diagnostico</th>
+                     </tr>
+                 </thead>
+                 <tbody>
+                     <tr>
+                         <td>Glucosa</td>
+                         <td>65-110</td>
+                         <td>mg/dl</td>
+                         <td><input type="text"></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td>Urea</td>
+                         <td>14.0-44</td>
+                         <td>mg/dl</td>
+                         <td><input type="text"></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td>Acido Urico</td>
+                         <td>3.4-7.0</td>
+                         <td>mg/dl</td>
+                         <td><input type="text"></td>
+                         <td></td>
+                     </tr>
+                     <tr>
+                         <td>Creatinina</td>
+                         <td>0.5-1.6</td>
+                         <td>mg/dl</td>
+                         <td><input type="text"></td>
+                         <td></td>
+                     </tr>
+                 </tbody>
+             </table>
+             <h3>Protenias</h3>
+             <table class="ui small celled definition table">
+                 <thead>
+                 <tr>
+                     <th></th>
+                     <th>Referencia</th>
+                     <th>Unidades</th>
+                     <th>Dato</th>
+                     <th>Diagnostico</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr>
+                     <td>Proteinas <br>totales</td>
+                     <td>6.4-8.3</td>
+                     <td>g/dl</td>
+                     <td><input type="text"></td>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td>Albumina</td>
+                     <td>3.4- 5.0</td>
+                     <td>g/dl</td>
+                     <td><input type="text"></td>
+                     <td></td>
+                 </tr>
+                 </tbody>
+             </table>
+             <h3>Perfil de Lipidos</h3>
+             <table class="ui small celled definition table">
+                 <thead>
+                 <tr>
+                     <th></th>
+                     <th>Referencia</th>
+                     <th>Unidades</th>
+                     <th>Dato</th>
+                     <th>Diagnostico</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr>
+                     <td>Colesterol</td>
+                     <td>140-200</td>
+                     <td>mg/dl</td>
+                     <td><input type="text"></td>
+                     <td></td>
+                 </tr>
+                 <tr>
+                     <td>Trigliceridos</td>
+                     <td>40-160</td>
+                     <td>mg/dl</td>
+                     <td><input type="text"></td>
+                     <td></td>
+                 </tr>
+                 </tbody>
+             </table>
+
+
+         </div>
          <input type="submit" class="ui fluid large teal submit button" value="Guardar">
 
         </form>
