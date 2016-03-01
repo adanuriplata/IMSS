@@ -68,8 +68,180 @@
             ;
         });
 
+//inicio jquery de comidas 
+         $(document).ready(function(){
+            var hctot=$("#hctot").val();
+            var prottot=$("#prottot").val();
+            var liptot=$("#liptot").val();
+            var kctot=$("#kctot").val();
 
-//jquery grafico
+            $("#rcleche").keyup(function(){
+                var rcleche=$("#rcleche").val();
+                var hcleche=rcleche*12;
+                var proleche=rcleche*9;
+                var lileche=rcleche*5;
+                var kcleche=(hcleche*4)+(proleche*4)+(lileche*9);
+                kctot = kctot + kcleche;
+                $("#hcleche").html(hcleche);
+                $("#proleche").html(proleche);
+                $("#lileche").html(lileche);
+                $("#kcleche").html(kcleche);
+                $("#kctot").html(kctot);
+            });
+
+            $("#rccarne").keyup(function(){
+                var rccarne=$("#rccarne").val();
+                var hccarne=rccarne*0;
+                var procarne=rccarne*7;
+                var licarne=rccarne*4;
+                var kccarne=(hccarne*4)+(procarne*4)+(licarne*9);
+                $("#hccarne").html(hccarne);
+                $("#procarne").html(procarne);
+                $("#licarne").html(licarne);
+                $("#kccarne").html(kccarne);
+            });
+
+            $("#rcfruta").keyup(function(){
+                var rcfruta=$("#rcfruta").val();
+                var hcfruta=rcfruta*15;
+                var profruta=rcfruta*0;
+                var lifruta=rcfruta*0;
+                var kcfruta=(hcfruta*4)+(profruta*4)+(lifruta*9);
+                $("#hcfruta").html(hcfruta);
+                $("#profruta").html(profruta);
+                $("#lifruta").html(lifruta);
+                $("#kcfruta").html(kcfruta);
+            });
+
+            $("#rcvegetales").keyup(function(){
+                var rcvegetales=$("#rcvegetales").val();
+                var hcvegetales=rcvegetales*4;
+                var provegetales=rcvegetales*2;
+                var livegetales=rcvegetales*0;
+                var kcvegetales=(hcvegetales*4)+(provegetales*4)+(livegetales*9);
+                $("#hcvegetales").html(hcvegetales);
+                $("#provegetales").html(provegetales);
+                $("#livegetales").html(livegetales);
+                $("#kcvegetales").html(kcvegetales);
+            });
+
+            $("#rccereal").keyup(function(){
+                var rccereal=$("#rccereal").val();
+                var hccereal=rccereal*15;
+                var procereal=rccereal*2;
+                var licereal=rccereal*0;
+                var kccereal=(hccereal*4)+(procereal*4)+(licereal*9);
+                $("#hccereal").html(hccereal);
+                $("#procereal").html(procereal);
+                $("#licereal").html(licereal);
+                $("#kccereal").html(kccereal);
+            });
+
+            $("#rcleguminosas").keyup(function(){
+                var rcleguminosas=$("#rcleguminosas").val();
+                var hcleguminosas=rcleguminosas*20;
+                var proleguminosas=rcleguminosas*8;
+                var lileguminosas=rcleguminosas*1;
+                var kcleguminosas=(hcleguminosas*4)+(proleguminosas*4)+(lileguminosas*9);
+                $("#hcleguminosas").html(hcleguminosas);
+                $("#proleguminosas").html(proleguminosas);
+                $("#lileguminosas").html(lileguminosas);
+                $("#kcleguminosas").html(kcleguminosas);
+            });
+
+            $("#rcgrasas").keyup(function(){
+                var rcgrasas=$("#rcgrasas").val();
+                var hcgrasas=rcgrasas*0;
+                var prograsas=rcgrasas*0;
+                var ligrasas=rcgrasas*5;
+                var kcgrasas=(hcgrasas*4)+(prograsas*4)+(ligrasas*9);
+                $("#hcgrasas").html(hcgrasas);
+                $("#prograsas").html(prograsas);
+                $("#ligrasas").html(ligrasas);
+                $("#kcgrasas").html(kcgrasas);
+            });
+
+            $("#rcazucar").keyup(function(){
+                var rcazucar=$("#rcazucar").val();
+                var hcazucar=rcazucar*10;
+                var proazucar=rcazucar*0;
+                var liazucar=rcazucar*0;
+                var kcazucar=(hcazucar*4)+(proazucar*4)+(liazucar*9);
+                $("#hcazucar").html(hcazucar);
+                $("#proazucar").html(proazucar);
+                $("#liazucar").html(liazucar);
+                $("#kcazucar").html(kcazucar);
+            });
+
+
+            $("#estatura").keyup(function(){
+                var estatura=$("#estatura").val();
+                var pesoTeorico=21.5*Math.pow(estatura,2);
+                var rangoInf=18.5*Math.pow(estatura,2);
+                var rangoSup=24.9*Math.pow(estatura,2);
+                $("#PesoTeorico").html(pesoTeorico.toFixed(2)+" "+"Kg's");
+                $("#RangoInferior").html(rangoInf.toFixed(2)+" "+"Kg's");
+                $("#RangoSuperior").html(rangoSup.toFixed(2)+" "+"Kg's");
+                $("#pesoAc").keyup(function(){
+                    var pesoAc=$("#pesoAc").val();
+                    var imc=pesoAc/Math.pow(estatura,2);
+                    $("#imc").html(imc.toFixed(2)+" "+"Kg's/m");
+                });
+            });
+
+
+
+        });
+
+        // inicia grafico de pastel
+
+        $(function () {
+    $('#graficapastel').highcharts({
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Grafico Totales'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            data: [
+                ['H. de C.', 45.0],
+                {
+                    name: 'Proteina',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Lipidos', 8.5],
+                
+            ]
+        }]
+    });
+});
+
+
+//jquery grafico historial peso
     var algo=$("#estatura").keyup(function(){
                 var nombre=$("#nombre").val();
             });
@@ -624,9 +796,167 @@
                  </tr>
                  </tbody>
              </table>
-
-
          </div>
+
+ <!-- Recordatorio de 24 hrs inicia dieta desayuno comida cena  -->
+
+
+
+
+<div class="ui stacked segment">
+<h2 class="ui dividing center aligned header">
+                 Comidas
+             </h2>
+              <div class="ui three column stackable divided grid">
+                  <div class="stretched row">
+                  <div class="nine wide column">
+                        <div class="column">
+                            <div class="ui segment">
+                                <h3>Desayuno</h3>
+             <table class="ui small celled definition table">
+                 <thead>
+                 <tr>
+                     <th></th>
+                     <th>RAC</th>
+                     <th>H.C</th>
+                     <th>Prot</th>
+                     <th>Lip</th>
+                     <th>Kcals</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr>
+                     <td>Leche</td>
+                     <td><input type="text" id="rcleche"></td>
+                     <td><p id="hcleche"></p></td>
+                     <td><p id="proleche"></p></td>
+                     <td><p id="lileche"></p></td>
+                     <td><p id="kcleche"></p></td>
+                 </tr>
+                 <tr>
+                     <td>Carne</td>
+                     <td><input type="text" id="rccarne"></td>
+                     <td><p id="hccarne"></p></td>
+                     <td><p id="procarne"></p></td>
+                     <td><p id="licarne"></p></td>
+                     <td><p id="kccarne"></p></td>
+                 </tr> 
+                 <tr>
+                     <td>Fruta</td>
+                     <td><input type="text" id="rcfruta"></td>
+                     <td><p id="hcfruta"></p></td>
+                     <td><p id="profruta"></p></td>
+                     <td><p id="lifruta"></p></td>
+                     <td><p id="kcfruta"></p></td>
+                 </tr> 
+                 <tr>
+                     <td>Vegetales</td>
+                     <td><input type="text" id="rcvegetales"></td>
+                     <td><p id="hcvegetales"></p></td>
+                     <td><p id="provegetales"></p></td>
+                     <td><p id="livegetales"></p></td>
+                     <td><p id="kcvegetales"></p></td>
+                 </tr>
+                 <tr>
+                     <td>Cer. y tub.</td>
+                     <td><input type="text" id="rccereal"></td>
+                     <td><p id="hccereal"></p></td>
+                     <td><p id="procereal"></p></td>
+                     <td><p id="licereal"></p></td>
+                     <td><p id="kccereal"></p></td>
+                 </tr>
+                 <tr>
+                     <td>Leguminosas</td>
+                     <td><input type="text" id="rcleguminosas"></td>
+                     <td><p id="hcleguminosas"></p></td>
+                     <td><p id="proleguminosas"></p></td>
+                     <td><p id="lileguminosas"></p></td>
+                     <td><p id="kcleguminosas"></p></td>
+                 </tr>
+                 <tr>
+                     <td>Grasas</td>
+                     <td><input type="text" id="rcgrasas"></td>
+                     <td><p id="hcgrasas"></p></td>
+                     <td><p id="prograsas"></p></td>
+                     <td><p id="ligrasas"></p></td>
+                     <td><p id="kcgrasas"></p></td>
+                 </tr>
+                 <tr>
+                     <td>Azucar</td>
+                     <td><input type="text" id="rcazucar"></td>
+                     <td><p id="hcazucar"></p></td>
+                     <td><p id="proazucar"></p></td>
+                     <td><p id="liazucar"></p></td>
+                     <td><p id="kcazucar"></p></td>
+                 </tr>
+                 <tr>
+                     <td>Total</td>
+                     <td></td>
+                     <td><p id="hctot"></p></td>
+                     <td><p id="prottot"></p></td>
+                     <td><p id="liptot"></p></td>
+                     <td><p id="kctot"></p></td>
+                 </tr>
+                 </tbody>
+             </table>
+             </div>
+         </div>
+    </div>
+                        <div class="seven wide column">
+                            <div class="two column row">
+                            <div class="column">
+                                <div class="ui segment">
+                                <h3>Totales</h3>
+                                    <table class="ui small celled definition table">
+                                       <thead>
+                                         <tr>
+                                            <th></th>
+                                             <th>%</th>
+                                             <th>GRS</th>
+                                             <th>KCALS</th>
+                                         </tr>
+                                         </thead>
+                                         <tbody>
+                                         <tr>
+                                             <td>H. de C.</td>
+                                             <td>?</td>
+                                             <td>?</td>
+                                             <td>?</td>
+                                         </tr>
+                                         <tr>
+                                             <td>Proteina</td>
+                                             <td>?</td>
+                                             <td>?</td>
+                                             <td>?</td>
+                                         </tr> 
+                                         <tr>
+                                             <td>Lipidos</td>
+                                             <td>?</td>
+                                             <td>?</td>
+                                             <td>?</td>
+                                         </tr> 
+                                     
+                                         </tbody>
+                                  </table>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div id="graficapastel" class="ui segment"> </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+        </div>
+
+
+
+
+
+
+
+
          <input type="submit" class="ui fluid large teal submit button" value="Guardar">
 
         </form>
