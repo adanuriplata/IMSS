@@ -5,12 +5,19 @@
     <title>Document</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('semantic.css')}}">
-    <script src="{{asset('jquery-1.12.0.min.js')}}"></script>
-    <script src="{{asset('semantic.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/semantic.css')}}">
+    <script src="{{asset('js/jquery-1.12.0.min.js')}}"></script>
+    <script src="{{asset('js/semantic.js')}}"></script>
+    <script src="{{asset('js/estatura.js')}}"></script>
+    <script src="{{asset('js/dieta.js')}}"></script>
+    
 
  <script src="https://code.highcharts.com/highcharts.js"></script>
+ <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="{{asset('js/grafico_historial_peso.js')}}"></script>
+<script src="{{asset('js/grafico_dieta.js')}}"></script>
+
 
     @yield('scripts')
     <style>
@@ -24,7 +31,7 @@
 
     <div class="ui stackable menu">
         <div class="item">
-            <img src="{{url('logo-imss.png')}}">
+            <img src="{{url('images/logo-imss.png')}}">
         </div>
         <a class="item active">Nombre</a>
         <a class="item">Perfil</a>
