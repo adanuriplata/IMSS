@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Antecedentes;
 use App\DatosGenerales;
 use App\historial;
 use App\MiembrosAmputados;
@@ -118,11 +119,11 @@ class MainController extends Controller
 
             ]);
 
+
         }
 
+
         return view('/');
-
-
 
 
     }
