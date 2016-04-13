@@ -17,6 +17,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="{{asset('js/grafico_historial_peso.js')}}"></script>
 <script src="{{asset('js/grafico_dieta.js')}}"></script>
+<script src="{{asset('js/gastoEnergetico.js')}}"></script>
 
 
     @yield('scripts')

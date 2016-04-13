@@ -1,7 +1,10 @@
 //jquery grafico historial peso
-    var algo=$("#estatura").keyup(function(){
-                var nombre=$("#nombre").val();
-            });
+$(document).ready(function() {
+    $("#btn_genera").click(function(){
+        
+var pesoa=$("#pesoAc").val();
+var nombreg=$("#nombre").val();
+         
 
     $(function () {
     $('#grafica').highcharts({
@@ -53,10 +56,26 @@
                     }
                 }
             }
-        },
+        }, 
         series: [{
-            name: 'Vicente',
-            data: [60,75]
+            name: nombreg,
+            // data: [60,75]
+            data: JSON.parse("[" + pesoa + "]")
         }]
     });
 });
+
+
+
+
+    }); 
+});
+
+
+
+
+
+
+
+
+    
