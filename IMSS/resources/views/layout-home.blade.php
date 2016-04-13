@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/semantic.css')}}">
     <script src="{{asset('js/jquery-1.12.0.min.js')}}"></script>
     <script src="{{asset('js/semantic.js')}}"></script>
-    <script src="{{asset('js/estatura.js')}}"></script>
-    <script src="{{asset('js/dieta.js')}}"></script>
-    
+
 
  <script src="https://code.highcharts.com/highcharts.js"></script>
  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
@@ -18,6 +16,10 @@
 <script src="{{asset('js/grafico_historial_peso.js')}}"></script>
 <script src="{{asset('js/grafico_dieta.js')}}"></script>
 <script src="{{asset('js/gastoEnergetico.js')}}"></script>
+
+<!-- <<<<<<< HEAD
+=======
+>>>>>>> e8d82fc507a0e2e7c7b3ef9e607a61e83f443e1b -->
 
 
     @yield('scripts')
@@ -48,7 +50,7 @@
                         <div class="header">Consultas</div>
                         <div class="menu">
                             <a class="item" href="{{url('/')}}">Buscar Paciente</a>
-
+                            <a class="item" href="{{url('/nuevo-usuario')}}">Registrar paciente</a>
                         </div>
                     </div>
                     <div class="item">

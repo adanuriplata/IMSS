@@ -1,7 +1,11 @@
 @extends('layout-home')
 <style>
-    .stacked{
-        width:400px;
+    .form{
+        width:600px;
+        margin:auto;
+    }
+    label{
+        font-size: 1.5em;
     }
 </style>
 
@@ -17,20 +21,25 @@
             </div>
         @endif
         <div class="ui stacked segment">
-
-            <form action="{{url('/paciente/buscar/')}}" method="post" class="ui form">
-                {!! csrf_field() !!}
-                <div class="field">
-                    <label for="">Buscar paciente</label>
-                    <div class="ui category search item">
-                        <div class="ui fluid icon input">
-                            <input type="text" placeholder="Buscar..." name="nss">
-                            <i class="search link icon"></i>
+            <div class="ui center aligned container">
+                <form action="{{url('/paciente/buscar/')}}" method="post" class="ui form">
+                    {!! csrf_field() !!}
+                    <div class="field">
+                        <h2>Buscar paciente</h2>
+                        <div class="ui big category search item">
+                            <div class="ui fluid icon input">
+                                <input type="text" placeholder="Buscar..." name="nss">
+                                <i class="search link icon"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <input type="submit" value="Buscar" class="ui fluid teal button">
-            </form>
+                    <input type="submit" value="Buscar" class="ui fluid teal button">
+                    @if(isset($noexiste))
+                        <h4>El usuario no se encuentra registrado <a href="{{url('/nuevo-usuario')}}">Dar de Alta</a></h4>
+                    @endif
+                </form>
+
+            </div>
             @if (count($errors) > 0)
                     <!-- Form Error List -->
                 <div class="ui error message">
@@ -45,9 +54,7 @@
                     </ul>
                 </div>
             @endif
-            @if(isset($noexiste))
-                <p>El usuario no se encuentra registrado <a href="{{url('/nuevo-usuario')}}">Dar de Alta</a></p>
-            @endif
+
         </div>
     </div>
     <script>

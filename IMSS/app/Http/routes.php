@@ -31,4 +31,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/','MainController@busqueda');
     Route::post('/paciente/buscar/','MainController@buscar');
     Route::post('/paciente/guardar/consulta','MainController@datosHistorial');
+    
+    Route::get ('/github', 'pdfController@github');
+    Route::post('/reporte/pdf','pdfController@reporte');
+
 });
