@@ -34,5 +34,6 @@ Route::group(['middleware' => ['web']], function () {
     
     Route::get ('/github', 'pdfController@github');
     Route::post('/reporte/pdf','pdfController@reporte');
-
+    Route::get('/impresion/formato_dos','pdfController@impresion_formato');
+    Route::get('/revision/formato_dos','pdfController@formato_dos');
 });

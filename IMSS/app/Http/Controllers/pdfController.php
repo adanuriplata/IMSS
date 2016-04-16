@@ -10,8 +10,8 @@ use App\Http\Controllers\Controller;
 class pdfController extends Controller
 {
     //
-    public function github (){
-         return \PDF::loadFile('http://www.github.com')->stream('github.pdf'); 
+    public function impresion_formato (){
+         return \PDF::loadFile('http://localhost:8000/impresion/formato_dos')->stream('github.pdf');
     }
     public function reporte(Request $request){
        if($request->ajax())
@@ -32,5 +32,8 @@ class pdfController extends Controller
     }
     public function vista(){
 
+    }
+    public function formato_dos(){
+        return view('formatos.formato2');
     }
 }

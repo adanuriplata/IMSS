@@ -4,7 +4,7 @@
     div>h4>p{
         display: inline;
     }
-
+   
 </style>
 @section('scripts')
     <script src="{{asset('js/calculos.js')}}"></script>
@@ -81,7 +81,7 @@
                             @endfor
                         </select>
                     </div>
-                     <div class="field">
+                    <div class="field">
                         <label>Edad</label>
                         <input type="text" id="edad" ></input>
                     </div>
@@ -219,11 +219,11 @@
                         </div>
                         <div class="twelve wide column">
                             <div class="two column row">
-                            <div>
-                            <input type="button" id="btn_genera" value="Ver gráfico" />
-                                 <br/>
-                             <div id="container_highchart"></div>
-                          </div>
+                                <div>
+                                    <input type="button" id="btn_genera" value="Ver gráfico" />
+                                    <br/>
+                                    <div id="container_highchart"></div>
+                                </div>
                                 <div class="column">
                                     <div id="grafica" class="ui segment"> </div>
                                 </div>
@@ -390,7 +390,8 @@
                     </div>
                 </div>
             </div>
-            <br>
+            <!--Tabla de analisis clinicos-->
+
             <div class="ui stacked segment" id="analisis">
                 <div class="ui accordion">
                     <div class="active title"> <h2 class="ui center aligned dividing header"><i class="dropdown icon"></i> Analisis de Laboratorio</h2></div>
@@ -976,791 +977,317 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-<!-- tabla de ingesta diaria -->
-<div class="ui stacked segment">
-<div class="ui accordion">
-<div class="active title">
-<h2 class="ui dividing center aligned header">
-               <i class="dropdown icon"></i>   
-             </h2></div>
-             <div class="active content">
-              <div class="ui one column stackable divided grid">
-                  <div class="stretched row">
-                  <div class="sixteen wide column">
-                        <div class="column">
-                            <div class="ui segment">
-             <table class="ui small celled definition table">
-                 <thead>
-                 <tr>
-                     <th></th>
-                     <th>RAC</th>
-                     <th>H.C</th>
-                     <th>Prot</th>
-                     <th>Lip</th>
-                     <th>Kcals</th>
-                     <th>Desayuno</th>
-                     <th>Col. Mat.</th>
-                     <th>Comida</th>
-                     <th>Col. Vesp.</th>
-                     <th>Cena</th>
-                     <th>Mensaje</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-                 <tr>
-                     <td>Leche</td>
-                     <td><input type="text" id="rcleche"></td>
-                     <td><p id="hcleche"></p></td>
-                     <td><p id="proleche"></p></td>
-                     <td><p id="lileche"></p></td>
-                     <td><p id="kcleche"></p></td>
-                     <td><p id="deleche"></p></td>
-                     <td><p id="cmleche"></p></td>
-                     <td><p id="coleche"></p></td>
-                     <td><p id="cvleche"></p></td>
-                     <td><p id="celeche"></p></td>
-                     <td><p id="mensajeleche"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Carne</td>
-                     <td><input type="text" id="rccarne"></td>
-                     <td><p id="hccarne"></p></td>
-                     <td><p id="procarne"></p></td>
-                     <td><p id="licarne"></p></td>
-                     <td><p id="kccarne"></p></td>
-                     <td><p id="decarne"></p></td>
-                     <td><p id="cmcarne"></p></td>
-                     <td><p id="cocarne"></p></td>
-                     <td><p id="cvcarne"></p></td>
-                     <td><p id="cecarne"></p></td>
-                     <td><p id="mensajecarne"></p></td>
-                 </tr> 
-                 <tr>
-                     <td>Fruta</td>
-                     <td><input type="text" id="rcfruta"></td>
-                     <td><p id="hcfruta"></p></td>
-                     <td><p id="profruta"></p></td>
-                     <td><p id="lifruta"></p></td>
-                     <td><p id="kcfruta"></p></td>
-                     <td><p id="defruta"></p></td>
-                     <td><p id="cmfruta"></p></td>
-                     <td><p id="cofruta"></p></td>
-                     <td><p id="cvfruta"></p></td>
-                     <td><p id="cefruta"></p></td>
-                     <td><p id="mensajefruta"></p></td>
-                 </tr> 
-                 <tr>
-                     <td>Vegetales</td>
-                     <td><input type="text" id="rcvegetales"></td>
-                     <td><p id="hcvegetales"></p></td>
-                     <td><p id="provegetales"></p></td>
-                     <td><p id="livegetales"></p></td>
-                     <td><p id="kcvegetales"></p></td>
-                     <td><p id="devegetales"></p></td>
-                     <td><p id="cmvegetales"></p></td>
-                     <td><p id="covegetales"></p></td>
-                     <td><p id="cvvegetales"></p></td>
-                     <td><p id="cevegetales"></p></td>
-                     <td><p id="mensajevegetales"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Cer. y tub.</td>
-                     <td><input type="text" id="rccereal"></td>
-                     <td><p id="hccereal"></p></td>
-                     <td><p id="procereal"></p></td>
-                     <td><p id="licereal"></p></td>
-                     <td><p id="kccereal"></p></td>
-                     <td><p id="decereal"></p></td>
-                     <td><p id="cmcereal"></p></td>
-                     <td><p id="cocereal"></p></td>
-                     <td><p id="cvcereal"></p></td>
-                     <td><p id="cecereal"></p></td>
-                     <td><p id="mensajecereal"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Leguminosas</td>
-                     <td><input type="text" id="rcleguminosas"></td>
-                     <td><p id="hcleguminosas"></p></td>
-                     <td><p id="proleguminosas"></p></td>
-                     <td><p id="lileguminosas"></p></td>
-                     <td><p id="kcleguminosas"></p></td>
-                     <td><p id="deleguminosas"></p></td>
-                     <td><p id="cmleguminosas"></p></td>
-                     <td><p id="coleguminosas"></p></td>
-                     <td><p id="cvleguminosas"></p></td>
-                     <td><p id="celeguminosas"></p></td>
-                     <td><p id="mensajeleguminosas"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Grasas</td>
-                     <td><input type="text" id="rcgrasas"></td>
-                     <td><p id="hcgrasas"></p></td>
-                     <td><p id="prograsas"></p></td>
-                     <td><p id="ligrasas"></p></td>
-                     <td><p id="kcgrasas"></p></td>
-                     <td><p id="degrasas"></p></td>
-                     <td><p id="cmgrasas"></p></td>
-                     <td><p id="cograsas"></p></td>
-                     <td><p id="cvgrasas"></p></td>
-                     <td><p id="cegrasas"></p></td>
-                     <td><p id="mensajegrasas"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Azucar</td>
-                     <td><input type="text" id="rcazucar"></td>
-                     <td><p id="hcazucar"></p></td>
-                     <td><p id="proazucar"></p></td>
-                     <td><p id="liazucar"></p></td>
-                     <td><p id="kcazucar"></p></td>
-                     <td><p id="deazucar"></p></td>
-                     <td><p id="cmazucar"></p></td>
-                     <td><p id="coazucar"></p></td>
-                     <td><p id="cvazucar"></p></td>
-                     <td><p id="ceazucar"></p></td>
-                     <td><p id="mensajeazucar"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Total</td>
-                     <td></td>
-                     <td><p id="hctot"></p></td>
-                     <td><p id="prottot"></p></td>
-                     <td><p id="liptot"></p></td>
-                     <td><p id="kctot"></p></td>
-                     <td><p id="decarne"></p></td>
-                     <td><p id="cmcarne"></p></td>
-                     <td><p id="cocarne"></p></td>
-                     <td><p id="cvcarne"></p></td>
-                     <td><p id="cecarne"></p></td>
-                     <td><p id="mensajecarne"></p></td>
-                 </tr>
-                 </tbody>
-             </table>
-                 </div>
-             </div>
-        </div>
-    </div>
-    </div>
-</div>
-</div>
-
-
-
-  <div class="ui stacked segment" id="analisis">
-          <div class="ui accordion">
-             <div class="active title"> <h2 class="ui center aligned dividing header"><i class="dropdown icon"></i> Gasto Energetico</h2></div>
-              <div class="active content">
-
-               <div class="field">
-                        <label for="">F.A.</label>
-                        <select name="gastoEnergetico" id="gastoEnergetico" class="two wide field">
-                            <option value="1.2">1.20 ENCAMADO Y CIRUGIA MENOR</option>
-                            <option value="1.3">1.30 AMBULATORIOS</option>
-                            <option value="1.35">1.35 TRAUMATISMO DE ESQUELETO</option>
-                            <option value="1.6">1.60  INFECCION GENERALIZADA</option>
-                            <option value="2.1">2.10 QUEMADURAS</option>
-                        </select>
-                    </div>
-
-             <h3>OMS</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                         <td>GEB</td>
-                         <td><input type="text" id="geb1"></td>
-                     </tr>
-                     <tr>
-                         <td>F.A.</td>
-                         <td><p id="fa" class="fa" >elige la opción F.A.</p></td>
-                     </tr>
-                     <tr>
-                         <td>GET</td>
-                         <td><input type="text" id="get1"></td>
-                     </tr>
-                 </tbody>
-             </table>
-             <h3>H.B.</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>GEB</td>
-                         <td><input type="text" id="geb2"></td>
-                     </tr>
-                     <tr>
-                         <td>F.A.</td>
-                         <td><p id="fa" class="fa" >elige la opción F.A. </p></td>
-                     </tr>
-                     <tr>
-                         <td>GET</td>
-                         <td><input type="text" id="get2"></td>
-                     </tr>
-                 </tbody>
-             </table>
-             <h3>Owen</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>GEB</td>
-                         <td><input type="text" id="geb3"></td>
-                     </tr>
-                     <tr>
-                         <td>F.A.</td>
-                         <td><p id="fa" class="fa" >elige la opción F.A.</p></td>
-                     </tr>
-                     <tr>
-                         <td>GET</td>
-                         <td><input type="text" id="get3"></td>
-                     </tr>
-                 </tbody>
-             </table>
-         </div>
-    </div>
-    </div>
-
-
-
-<!-- comienza formato -->
-  <div class="ui container">
-        <h1 class="ui dividing header">
-            <i class="doctor icon"></i> Formato para impresion
-        </h1>
-        <div class="ui attached message">
-            <div class="header">
-                Instituto Mexicano Del Seguro Social <br>
-                Departamento de Nutrición Y Dietetica HGR 36 <br>
-            </div>
-            <p></p>
-        </div>
-        <form action="{{url('/historial/guardar')}}" class="ui form" method="post">
+            <!-- tabla de ingesta diaria -->
             <div class="ui stacked segment">
-            {!! csrf_field() !!}
-                <div class="fields">
-                    <div class="field">
-                        <label>Nombre</label>
-                        <p>Adan</p> <p>Uri</p> <p>Plata</p>
+                <div class="ui accordion">
+                    <div class="active title">
+                        <h2 class="ui dividing center aligned header">
+                            <i class="dropdown icon"></i>
+                            Ingesta Diaria
+                        </h2>
                     </div>
-                    <div class="field">
-                        <label for="">NSS</label>
-                        <p></p>
-                    </div>
-
-                    <div class="field">
-                        <label for="">Fecha</label>
-                        <p></p>
-                    </div>
-                    <div class="field">
-                        <label for="">Edad</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">Sexo</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">Peso Actual</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">Estatura</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">Peso ideal</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">IMC</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">ICC</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">Diagnostico</label>
-                        <p></p>
-                    </div><div class="field">
-                        <label for="">Tx Dietetico</label>
-                        <p></p>
+                    <div class="active content">
+                        <div class="ui one column stackable divided grid">
+                            <div class="stretched row">
+                                <div class="sixteen wide column">
+                                    <div class="column">
+                                        <div class="ui segment">
+                                            <table class="ui small celled definition table">
+                                                <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>RAC</th>
+                                                    <th>H.C</th>
+                                                    <th>Prot</th>
+                                                    <th>Lip</th>
+                                                    <th>Kcals</th>
+                                                    <th>Desayuno</th>
+                                                    <th>Col. Mat.</th>
+                                                    <th>Comida</th>
+                                                    <th>Col. Vesp.</th>
+                                                    <th>Cena</th>
+                                                    <th>Mensaje</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Leche</td>
+                                                    <td><input type="text" id="rcleche"></td>
+                                                    <td><p id="hcleche"></p></td>
+                                                    <td><p id="proleche"></p></td>
+                                                    <td><p id="lileche"></p></td>
+                                                    <td><p id="kcleche"></p></td>
+                                                    <td><p id="deleche"></p></td>
+                                                    <td><p id="cmleche"></p></td>
+                                                    <td><p id="coleche"></p></td>
+                                                    <td><p id="cvleche"></p></td>
+                                                    <td><p id="celeche"></p></td>
+                                                    <td><p id="mensajeleche"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carne</td>
+                                                    <td><input type="text" id="rccarne"></td>
+                                                    <td><p id="hccarne"></p></td>
+                                                    <td><p id="procarne"></p></td>
+                                                    <td><p id="licarne"></p></td>
+                                                    <td><p id="kccarne"></p></td>
+                                                    <td><p id="decarne"></p></td>
+                                                    <td><p id="cmcarne"></p></td>
+                                                    <td><p id="cocarne"></p></td>
+                                                    <td><p id="cvcarne"></p></td>
+                                                    <td><p id="cecarne"></p></td>
+                                                    <td><p id="mensajecarne"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fruta</td>
+                                                    <td><input type="text" id="rcfruta"></td>
+                                                    <td><p id="hcfruta"></p></td>
+                                                    <td><p id="profruta"></p></td>
+                                                    <td><p id="lifruta"></p></td>
+                                                    <td><p id="kcfruta"></p></td>
+                                                    <td><p id="defruta"></p></td>
+                                                    <td><p id="cmfruta"></p></td>
+                                                    <td><p id="cofruta"></p></td>
+                                                    <td><p id="cvfruta"></p></td>
+                                                    <td><p id="cefruta"></p></td>
+                                                    <td><p id="mensajefruta"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Vegetales</td>
+                                                    <td><input type="text" id="rcvegetales"></td>
+                                                    <td><p id="hcvegetales"></p></td>
+                                                    <td><p id="provegetales"></p></td>
+                                                    <td><p id="livegetales"></p></td>
+                                                    <td><p id="kcvegetales"></p></td>
+                                                    <td><p id="devegetales"></p></td>
+                                                    <td><p id="cmvegetales"></p></td>
+                                                    <td><p id="covegetales"></p></td>
+                                                    <td><p id="cvvegetales"></p></td>
+                                                    <td><p id="cevegetales"></p></td>
+                                                    <td><p id="mensajevegetales"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cer. y tub.</td>
+                                                    <td><input type="text" id="rccereal"></td>
+                                                    <td><p id="hccereal"></p></td>
+                                                    <td><p id="procereal"></p></td>
+                                                    <td><p id="licereal"></p></td>
+                                                    <td><p id="kccereal"></p></td>
+                                                    <td><p id="decereal"></p></td>
+                                                    <td><p id="cmcereal"></p></td>
+                                                    <td><p id="cocereal"></p></td>
+                                                    <td><p id="cvcereal"></p></td>
+                                                    <td><p id="cecereal"></p></td>
+                                                    <td><p id="mensajecereal"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Leguminosas</td>
+                                                    <td><input type="text" id="rcleguminosas"></td>
+                                                    <td><p id="hcleguminosas"></p></td>
+                                                    <td><p id="proleguminosas"></p></td>
+                                                    <td><p id="lileguminosas"></p></td>
+                                                    <td><p id="kcleguminosas"></p></td>
+                                                    <td><p id="deleguminosas"></p></td>
+                                                    <td><p id="cmleguminosas"></p></td>
+                                                    <td><p id="coleguminosas"></p></td>
+                                                    <td><p id="cvleguminosas"></p></td>
+                                                    <td><p id="celeguminosas"></p></td>
+                                                    <td><p id="mensajeleguminosas"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Grasas</td>
+                                                    <td><input type="text" id="rcgrasas"></td>
+                                                    <td><p id="hcgrasas"></p></td>
+                                                    <td><p id="prograsas"></p></td>
+                                                    <td><p id="ligrasas"></p></td>
+                                                    <td><p id="kcgrasas"></p></td>
+                                                    <td><p id="degrasas"></p></td>
+                                                    <td><p id="cmgrasas"></p></td>
+                                                    <td><p id="cograsas"></p></td>
+                                                    <td><p id="cvgrasas"></p></td>
+                                                    <td><p id="cegrasas"></p></td>
+                                                    <td><p id="mensajegrasas"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Azucar</td>
+                                                    <td><input type="text" id="rcazucar"></td>
+                                                    <td><p id="hcazucar"></p></td>
+                                                    <td><p id="proazucar"></p></td>
+                                                    <td><p id="liazucar"></p></td>
+                                                    <td><p id="kcazucar"></p></td>
+                                                    <td><p id="deazucar"></p></td>
+                                                    <td><p id="cmazucar"></p></td>
+                                                    <td><p id="coazucar"></p></td>
+                                                    <td><p id="cvazucar"></p></td>
+                                                    <td><p id="ceazucar"></p></td>
+                                                    <td><p id="mensajeazucar"></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total</td>
+                                                    <td></td>
+                                                    <td><p id="hctot"></p></td>
+                                                    <td><p id="prottot"></p></td>
+                                                    <td><p id="liptot"></p></td>
+                                                    <td><p id="kctot"></p></td>
+                                                    <td><p id="decarne"></p></td>
+                                                    <td><p id="cmcarne"></p></td>
+                                                    <td><p id="cocarne"></p></td>
+                                                    <td><p id="cvcarne"></p></td>
+                                                    <td><p id="cecarne"></p></td>
+                                                    <td><p id="mensajecarne"></p></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <!-- tabla de gato energetico -->
+            <div class="ui stacked segment">
+                <div class="ui accordion">
+                    <div class="active title">
+                        <h2 class="ui center aligned dividing header"><i class="dropdown icon"></i> Gasto Energetico</h2>
+                    </div>
+                    <div class="active content">
 
-<div class="ui stacked segment">
-<div class="active title">
-<h2 class="ui dividing center aligned header">  
-             </h2></div>
-             <div class="active content">
-              <div class="ui one column stackable divided grid">
-                  <div class="stretched row">
-                  <div class="sixteen wide column">
-                        <div class="column">
-                            <div class="ui segment">
-             <table class="ui small celled definition table">
-                 <thead>
-                 <tr>
-                     <th></th>
-                     <th>RAC</th>
-                     <th>Desayuno</th>
-                     <th>Col. Mat.</th>
-                     <th>Comida</th>
-                     <th>Col. Vesp.</th>
-                     <th>Cena</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-                 <tr>
-                     <td>Leche</td>
-                     <td><p id="rcleche"></p></td>
-                     <td><p id="deleche"></p></td>
-                     <td><p id="cmleche"></p></td>
-                     <td><p id="coleche"></p></td>
-                     <td><p id="cvleche"></p></td>
-                     <td><p id="celeche"></p></td>                 
-                </tr>
-                 <tr>
-                     <td>Carne</td>
-                     <td><p id="rccarne"></p></td>
-                     <td><p id="decarne"></p></td>
-                     <td><p id="cmcarne"></p></td>
-                     <td><p id="cocarne"></p></td>
-                     <td><p id="cvcarne"></p></td>
-                     <td><p id="cecarne"></p></td>                 
-                </tr> 
-                 <tr>
-                     <td>Fruta</td>
-                     <td><p id="rcfruta"></p></td>
-                     <td><p id="defruta"></p></td>
-                     <td><p id="cmfruta"></p></td>
-                     <td><p id="cofruta"></p></td>
-                     <td><p id="cvfruta"></p></td>
-                     <td><p id="cefruta"></p></td>                 
-                </tr> 
-                 <tr>
-                     <td>Vegetales</td>
-                     <td><p id="rcvegetales"></p></td>
-                     <td><p id="devegetales"></p></td>
-                     <td><p id="cmvegetales"></p></td>
-                     <td><p id="covegetales"></p></td>
-                     <td><p id="cvvegetales"></p></td>
-                     <td><p id="cevegetales"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Cer. y tub.</td>
-                     <td><p id="rcceral"></p></td>
-                     <td><p id="decereal"></p></td>
-                     <td><p id="cmcereal"></p></td>
-                     <td><p id="cocereal"></p></td>
-                     <td><p id="cvcereal"></p></td>
-                     <td><p id="cecereal"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Leguminosas</td>
-                     <td><p id="rcleguminosas"></p></td>
-                     <td><p id="deleguminosas"></p></td>
-                     <td><p id="cmleguminosas"></p></td>
-                     <td><p id="coleguminosas"></p></td>
-                     <td><p id="cvleguminosas"></p></td>
-                     <td><p id="celeguminosas"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Grasas</td>
-                     <td><p id="rcgrasa"></p></td>
-                     <td><p id="degrasas"></p></td>
-                     <td><p id="cmgrasas"></p></td>
-                     <td><p id="cograsas"></p></td>
-                     <td><p id="cvgrasas"></p></td>
-                     <td><p id="cegrasas"></p></td>
-                 </tr>
-                 <tr>
-                     <td>Azucar</td>
-                     <td><p id="rcazucar"></p></td>
-                     <td><p id="deazucar"></p></td>
-                     <td><p id="cmazucar"></p></td>
-                     <td><p id="coazucar"></p></td>
-                     <td><p id="cvazucar"></p></td>
-                     <td><p id="ceazucar"></p></td>
-                 </tr>
-                 </tbody>
-             </table>
-                 </div>
-             </div>
-        </div>
-    </div>
-    </div>
-</div>
+                        <div class="field">
+                            <label for="">F.A.</label>
+                            <select name="gastoEnergetico" id="gastoEnergetico" class="two wide field">
+                                <option value="1.2">1.20 ENCAMADO Y CIRUGIA MENOR</option>
+                                <option value="1.3">1.30 AMBULATORIOS</option>
+                                <option value="1.35">1.35 TRAUMATISMO DE ESQUELETO</option>
+                                <option value="1.6">1.60  INFECCION GENERALIZADA</option>
+                                <option value="2.1">2.10 QUEMADURAS</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="ui equal width grid">
+                                <div class="column">
+                                    <h3>OMS</h3>
+                                    <table class="ui small celled definition table" >
 
- <h3>Grupo de Leche</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>Leche descremada o light</td>
-                         <td><input type="text" >taza</td>
-                     </tr>
-                     <tr>
-                         <td>Yogurt natural o light</td>
-                         <td><p id="fa" class="fa" ></p>taza</td>
-                     </tr>
-                     <tr>
-                         <td>Queso: Hebra, panela, requesón</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                 </tbody>
-             </table>
+                                        <tbody>
+                                        <tr>
+                                            <td>GEB</td>
+                                            <td><input type="text" id="geb1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>F.A.</td>
+                                            <td><p id="fa" class="fa" >elige la opción F.A.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GET</td>
+                                            <td><input type="text" id="get1"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="column">
+                                    <h3>H.B.</h3>
+                                    <table class="ui small celled definition table" >
 
-<h3>Grupo de Carnes</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>Clara de huevo</td>
-                         <td><input type="text" >taza</td>
-                     </tr>
-                     <tr>
-                         <td>Atun en agua</td>
-                         <td><p id="fa" class="fa" ></p>taza</td>
-                     </tr>
-                     <tr>
-                         <td>Pollo sin piel</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Pescado fresco</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Res magra</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Queso panela</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Queso cottage</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                 </tbody>
-             </table>
-
-<h3>Grupo de Carnes</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>acelgas</td>
-                         <td><input type="text" >taza</td>
-                     </tr>
-                     <tr>
-                         <td>col</td>
-                         <td><p id="fa" class="fa" ></p>taza</td>
-                     </tr>
-                     <tr>
-                         <td>Chayote</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Chile Poblano</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>espinaca cocida</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>espinaca cruda</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>jitomate </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>pimiento</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>zanahoria</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>calabacita cruda</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>calabaza cocida</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>betabel </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>chicharo</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>hongos </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>haba verde</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>lechuga </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>apio</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>berro</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>berenjena</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>huazontle</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                 </tbody>
-             </table>
-
-<h3>Grupo de Frutas</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>Capulines</td>
-                         <td><input type="text" >taza</td>
-                     </tr>
-                     <tr>
-                         <td>Ciruela</td>
-                         <td><p id="fa" class="fa" ></p>taza</td>
-                     </tr>
-                     <tr>
-                         <td>Chabacanos</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Chicozapote </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Durazno</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Fresas</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Guayaba </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Higo fresco</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Jícama</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Kiwi</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td></td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>betabel </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Sandía</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>toronja</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>haba verde</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>lechuga </td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>apio</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>berro</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>berenjena</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>huazontle</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                 </tbody>
-             </table>
-             <h3>Grupo de Cereales</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>Bolillo</td>
-                         <td><input type="text" >taza</td>
-                     </tr>
-                     <tr>
-                         <td>Pan tostado integral</td>
-                         <td><p id="fa" class="fa" ></p>taza</td>
-                     </tr>
-                     <tr>
-                         <td>Tortilla de maíz</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Arroz con verduras</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Sopa de pasta</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Avena cocida</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Cereal integral</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                     <tr>
-                         <td>Amaranto</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                     <tr>
-                         <td>Pan integral</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                 </tbody>
-             </table>
-
-             <h3>Grupo de Leguminosas</h3>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>Frijol</td>
-                         <td><input type="text" >taza</td>
-                     </tr>
-                     <tr>
-                         <td>Haba</td>
-                         <td><p id="fa" class="fa" ></p>taza</td>
-                     </tr>
-                     <tr>
-                         <td>Lenteja</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Garbanzos</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Alberjones</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Soya</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Soya  hidratada</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                     <tr>
-                         <td>soya germinada</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                     <tr>
-                         <td>Pan integral</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                 </tbody>
-             </table>
-      <h3>Grupo de Grasas</h3>
-      <h4>Por cada ración de grasa puede consumir  5 gramos o una cucharadita cafetera de: <p> Aceite de maíz, girasol, algodón, cártamo, soya, margarina.</p></h4>
-             <table class="ui small celled definition table" >
-                 <thead>
-                     <tr>
-                         <th></th>
-                         <th></th>
-                     </tr>
-                 </thead>
-                  <tbody>
-                     <tr>
-                         <td>Aguacate</td>
-                         <td><input type="text" >taza</td>
-                     </tr>
-                     <tr>
-                         <td>Nueces</td>
-                         <td><p id="fa" class="fa" ></p>taza</td>
-                     </tr>
-                     <tr>
-                         <td>Avellanas</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr><tr>
-                         <td>Almendras</td>
-                         <td><input type="text" id="get2">gr</td>
-                     </tr>
-                 </tbody>
-             </table>
-
-        <h3>Recomendaciones</h3>
-            <ul>
-            <li>*Respete las cantidades de alimentación que se indique en su dieta.</li>
-            <li>*Tome mínimo 1.5 litros de agua al día.</li>
-            <li>*Coma la fruta y la verdura preferentemente cocida.
-            </li>
-            <li>*No comer más cantidades de frutas de las indicadas.</li>
-            <li>*Si nunca ha realizado ejercicio inicie con 10 minutos de caminata en superficies planas , con calzado comodo y ropa adecuada y aumente progresivamente el tiempo de ejercicio paulatinamente.</li>
-            <li>*ANTES DE REALIZAR CUALQUIER ACTIVIDAD FISICA O EJERCICIO CONSULTE A SU MEDICO.</li>
-            <li>*Asar, hervir, al vapor o al horno sus alimentos y evitar freír, capear o empanizar.</li>
-            </ul>
-
+                                        <tbody>
+                                        <tr>
+                                            <td>GEB</td>
+                                            <td><input type="text" id="geb2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>F.A.</td>
+                                            <td><p id="fa" class="fa" >elige la opción F.A. </p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GET</td>
+                                            <td><input type="text" id="get2"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="column">
+                                    <h3>Owen</h3>
+                                    <table class="ui small celled definition table" >
+                                        <tbody>
+                                        <tr>
+                                            <td>GEB</td>
+                                            <td><input type="text" id="geb3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>F.A.</td>
+                                            <td><p id="fa" class="fa" >elige la opción F.A.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GET</td>
+                                            <td><input type="text" id="get3"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="column">
+                                    <h3>Valencia</h3>
+                                    <table class="ui small celled definition table" >
+                                        <tbody>
+                                        <tr>
+                                            <td>GEB</td>
+                                            <td><input type="text" id="geb3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>F.A.</td>
+                                            <td><p id="fa" class="fa" >elige la opción F.A.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GET</td>
+                                            <td><input type="text" id="get3"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="column">
+                                    <h3>Mifflin Sant Jeor</h3>
+                                    <table class="ui small celled definition table" >
+                                        <tbody>
+                                        <tr>
+                                            <td>GEB</td>
+                                            <td><input type="text" id="geb3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>F.A.</td>
+                                            <td><p id="fa" class="fa" >elige la opción F.A.</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GET</td>
+                                            <td><input type="text" id="get3"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-<!-- temrina formato -->
 
-                <input type="submit" class="ui fluid large teal submit button" value="Guardar">
+
+            <input type="submit" class="ui fluid large teal submit button" value="Guardar">
 
         </form>
         <h3>Acciones</h3>
-        <a href="{{url('/reporte/pdf')}}" class="ui fluid primary button" target="_blank" id="reporte">Ver reporte</a>
+        <a href="{{url('/revision/formato_dos')}}" class="ui fluid primary button" target="_blank" id="reporte">Ver reporte</a>
         @if (count($errors) > 0)
                 <!-- Form Error List -->
-        <div class="ui error message">
-            <i class="close icon"></i>
-            <div class="header">
-                Ha ocurrido un error
+            <div class="ui error message">
+                <i class="close icon"></i>
+                <div class="header">
+                    Ha ocurrido un error
+                </div>
+                <ul class="list">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-            <ul class="list">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
+        @endif
 @endsection
