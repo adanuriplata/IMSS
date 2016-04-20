@@ -9,12 +9,7 @@
 @section('scripts')
     <script src="{{asset('js/calculos.js')}}"></script>
     <script src="{{asset('js/dieta.js')}}"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="{{asset('js/grafico_historial_peso.js')}}"></script>
-    <script src="{{asset('js/grafico_dieta.js')}}"></script>
-
+    
 @endsection
 @section('contenido')
 
@@ -26,7 +21,7 @@
             <div class="header">
                 Instituto Mexicano Del Seguro Social <br>
                 Hospital General Regional #36 <br>
-                Departamento de Nutrición Y Dietetica <br>
+                Departamento de Nutrición Y Dietetica  <br>
             </div>
             <p></p>
         </div>
@@ -536,20 +531,20 @@
             </div>
 
             <!--Inicia Recordatorio de 24 hrs inicia dieta desayuno comida cena  -->
-            <div class="ui stacked segment">
+            <div class="ui stacked segment" >
                 <div class="ui accordion">
                     <div class="active title">
                         <h2 class="ui dividing center aligned header"><i class="dropdown icon"></i>
                             Comidas
                         </h2></div>
-                    <div class="active content">
+                    <div class="active content" >
                         <div class="ui three column stackable divided grid">
                             <div class="stretched row">
                                 <div class="nine wide column">
                                     <div class="column">
-                                        <div class="ui segment">
+                                        <div class="ui segment" >
                                             <h3><i class="spoon icon"></i>Desayuno</h3>
-                                            <table class="ui small celled definition table">
+                                            <table class="ui small celled definition table" >
                                                 <thead>
                                                 <tr>
                                                     <th></th>
@@ -564,75 +559,82 @@
                                                 <tr>
                                                     <td>Leche</td>
                                                     <td><input type="text" id="rcleche"></td>
-                                                    <td><p id="hcleche"></p></td>
-                                                    <td><p id="proleche"></p></td>
-                                                    <td><p id="lileche"></p></td>
-                                                    <td><p id="kcleche"></p></td>
+                                                    <td><input type="number" id="hcleche" disabled></td>
+                                                    <td><input type="number" id="proleche" disabled></td>
+                                                    <td><input type="number" id="lileche" disabled></td>
+                                                    <td>
+                                                    <input type="number" ng-model="kcleche" id="kcleche" disabled ></p>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Carne</td>
                                                     <td><input type="text" id="rccarne"></td>
-                                                    <td><p id="hccarne"></p></td>
-                                                    <td><p id="procarne"></p></td>
-                                                    <td><p id="licarne"></p></td>
-                                                    <td><p id="kccarne"></p></td>
+                                                    <td><input type="number" id="hccarne" disabled></td>
+                                                    <td><input type="number" id="procarne" disabled></td>
+                                                    <td><input type="number" id="licarne" disabled></td>
+                                                    <td><input type="number" id="kccarne" disabled ng-model="kccarne"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Fruta</td>
                                                     <td><input type="text" id="rcfruta"></td>
-                                                    <td><p id="hcfruta"></p></td>
-                                                    <td><p id="profruta"></p></td>
-                                                    <td><p id="lifruta"></p></td>
-                                                    <td><p id="kcfruta"></p></td>
+                                                    <td><input type="number" id="hcfruta" disabled></td>
+                                                    <td><input type="number" id="profruta" disabled></td>
+                                                    <td><input type="number" id="lifruta" disabled></td>
+                                                    <td><input type="number" id="kcfruta" disabled ng-model="kcfruta"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Vegetales</td>
                                                     <td><input type="text" id="rcvegetales"></td>
-                                                    <td><p id="hcvegetales"></p></td>
-                                                    <td><p id="provegetales"></p></td>
-                                                    <td><p id="livegetales"></p></td>
-                                                    <td><p id="kcvegetales"></p></td>
+                                                    <td><input type="number" id="hcvegetales" disabled></td>
+                                                    <td><input type="number" id="provegetales" disabled></td>
+                                                    <td><input type="number" id="liazucar" disabled></td>
+                                                    <td><input type="number" id="kcvegetales" disabled ng-model="kcvegetales"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Cer. y tub.</td>
                                                     <td><input type="text" id="rccereal"></td>
-                                                    <td><p id="hccereal"></p></td>
-                                                    <td><p id="procereal"></p></td>
-                                                    <td><p id="licereal"></p></td>
-                                                    <td><p id="kccereal"></p></td>
+                                                    <td><input type="number" id="hccereal" disabled></td>
+                                                    <td><input type="number" id="procereal" disabled></td>
+                                                    <td><input type="number" id="licereal" disabled></td>
+                                                    <td><input type="number" id="kccereal" disabled ng-model="kccereal"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Leguminosas</td>
                                                     <td><input type="text" id="rcleguminosas"></td>
-                                                    <td><p id="hcleguminosas"></p></td>
-                                                    <td><p id="proleguminosas"></p></td>
-                                                    <td><p id="lileguminosas"></p></td>
-                                                    <td><p id="kcleguminosas"></p></td>
+                                                    <td><input type="number" id="hcleguminosas" disabled></td>
+                                                    <td><input type="number" id="proleguminosas" disabled></p></td>
+                                                    <td><input type="number" id="lileguminosas" disabled></td>
+                                                    <td><input type="number" id="kcleguminosas" disabled ng-model="kcleguminosas"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Grasas</td>
                                                     <td><input type="text" id="rcgrasas"></td>
-                                                    <td><p id="hcgrasas"></p></td>
-                                                    <td><p id="prograsas"></p></td>
-                                                    <td><p id="ligrasas"></p></td>
-                                                    <td><p id="kcgrasas"></p></td>
+                                                    <td><input type="number" id="hcgrasas" disabled></td>
+                                                    <td><input type="number" id="prograsas" disabled></td>
+                                                    <td><input type="number" id="ligrasas" disabled></td>
+                                                    <td><input type="number" id="kcgrasas" disabled ng-model="kcgrasas"></p></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Azucar</td>
                                                     <td><input type="text" id="rcazucar"></td>
-                                                    <td><p id="hcazucar"></p></td>
-                                                    <td><p id="proazucar"></p></td>
-                                                    <td><p id="liazucar"></p></td>
-                                                    <td><p id="kcazucar"></p></td>
+                                                    <td><input type="number" id="hcazucar" disabled> </td>
+                                                    <td><input type="number" id="proazucar" disabled></td>
+                                                    <td><input type="number" id="liazucar" disabled></td>
+                                                    <td><input type="number" id="kcazucar" disabled ng-model="kcazucar"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Total</td>
                                                     <td></td>
-                                                    <td><p id="hctot"></p></td>
-                                                    <td><p id="prottot"></p></td>
-                                                    <td><p id="liptot"></p></td>
-                                                    <td><p id="kctot"></p></td>
+                                                    <td><p id="totaldesayunoh"></p></td>
+                                                    <td><p id="totaldesayunop"></p></td>
+                                                    <td><p id="totaldesayunol"></p></td>
+                                                    <td>
+                                            
+                                                         <p id="totaldesayunok">  </p>
+                                                   
+                                                    </td>
                                                 </tr>
+                                                <input type="button" value="+" id="botondesayuno">
                                                 </tbody>
                                             </table>
                                         </div>

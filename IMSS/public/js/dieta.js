@@ -3,7 +3,6 @@
             var hctot=$("#hctot").val();
             var prottot=$("#prottot").val();
             var liptot=$("#liptot").val();
-            var kctot=0;
 
             $("#rcleche").keyup(function(){
                 var rcleche=$("#rcleche").val();
@@ -11,18 +10,11 @@
                 var proleche=rcleche*9;
                 var lileche=rcleche*5;
                 var kcleche=(hcleche*4)+(proleche*4)+(lileche*9);
-                if (kcleche==0) {
-                    kctot = 0;
-                }
-                else{
-                 kctot = kctot + kcleche;   
-                }
-                
-                $("#hcleche").html(hcleche);
-                $("#proleche").html(proleche);
-                $("#lileche").html(lileche);
-                $("#kcleche").html(kcleche);
-                $("#kctot").html(kctot);
+
+                $("#hcleche").val(hcleche);
+                $("#proleche").val(proleche);
+                $("#lileche").val(lileche);
+                $("#kcleche").val(kcleche);
             });
 
             $("#rccarne").keyup(function(){
@@ -31,10 +23,10 @@
                 var procarne=rccarne*7;
                 var licarne=rccarne*4;
                 var kccarne=(hccarne*4)+(procarne*4)+(licarne*9);
-                $("#hccarne").html(hccarne);
-                $("#procarne").html(procarne);
-                $("#licarne").html(licarne);
-                $("#kccarne").html(kccarne);
+                $("#hccarne").val(hccarne);
+                $("#procarne").val(procarne);
+                $("#licarne").val(licarne);
+                $("#kccarne").val(kccarne);
             });
 
             $("#rcfruta").keyup(function(){
@@ -43,10 +35,10 @@
                 var profruta=rcfruta*0;
                 var lifruta=rcfruta*0;
                 var kcfruta=(hcfruta*4)+(profruta*4)+(lifruta*9);
-                $("#hcfruta").html(hcfruta);
-                $("#profruta").html(profruta);
-                $("#lifruta").html(lifruta);
-                $("#kcfruta").html(kcfruta);
+                $("#hcfruta").val(hcfruta);
+                $("#profruta").val(profruta);
+                $("#lifruta").val(lifruta);
+                $("#kcfruta").val(kcfruta);
             });
 
             $("#rcvegetales").keyup(function(){
@@ -55,10 +47,10 @@
                 var provegetales=rcvegetales*2;
                 var livegetales=rcvegetales*0;
                 var kcvegetales=(hcvegetales*4)+(provegetales*4)+(livegetales*9);
-                $("#hcvegetales").html(hcvegetales);
-                $("#provegetales").html(provegetales);
-                $("#livegetales").html(livegetales);
-                $("#kcvegetales").html(kcvegetales);
+                $("#hcvegetales").val(hcvegetales);
+                $("#provegetales").val(provegetales);
+                $("#livegetales").val(livegetales);
+                $("#kcvegetales").val(kcvegetales);
             });
 
             $("#rccereal").keyup(function(){
@@ -67,10 +59,10 @@
                 var procereal=rccereal*2;
                 var licereal=rccereal*0;
                 var kccereal=(hccereal*4)+(procereal*4)+(licereal*9);
-                $("#hccereal").html(hccereal);
-                $("#procereal").html(procereal);
-                $("#licereal").html(licereal);
-                $("#kccereal").html(kccereal);
+                $("#hccereal").val(hccereal);
+                $("#procereal").val(procereal);
+                $("#licereal").val(licereal);
+                $("#kccereal").val(kccereal);
             });
 
             $("#rcleguminosas").keyup(function(){
@@ -79,10 +71,10 @@
                 var proleguminosas=rcleguminosas*8;
                 var lileguminosas=rcleguminosas*1;
                 var kcleguminosas=(hcleguminosas*4)+(proleguminosas*4)+(lileguminosas*9);
-                $("#hcleguminosas").html(hcleguminosas);
-                $("#proleguminosas").html(proleguminosas);
-                $("#lileguminosas").html(lileguminosas);
-                $("#kcleguminosas").html(kcleguminosas);
+                $("#hcleguminosas").val(hcleguminosas);
+                $("#proleguminosas").val(proleguminosas);
+                $("#lileguminosas").val(lileguminosas);
+                $("#kcleguminosas").val(kcleguminosas);
             });
 
             $("#rcgrasas").keyup(function(){
@@ -91,10 +83,10 @@
                 var prograsas=rcgrasas*0;
                 var ligrasas=rcgrasas*5;
                 var kcgrasas=(hcgrasas*4)+(prograsas*4)+(ligrasas*9);
-                $("#hcgrasas").html(hcgrasas);
-                $("#prograsas").html(prograsas);
-                $("#ligrasas").html(ligrasas);
-                $("#kcgrasas").html(kcgrasas);
+                $("#hcgrasas").val(hcgrasas);
+                $("#prograsas").val(prograsas);
+                $("#ligrasas").val(ligrasas);
+                $("#kcgrasas").val(kcgrasas);
             });
 
             $("#rcazucar").keyup(function(){
@@ -103,11 +95,70 @@
                 var proazucar=rcazucar*0;
                 var liazucar=rcazucar*0;
                 var kcazucar=(hcazucar*4)+(proazucar*4)+(liazucar*9);
-                $("#hcazucar").html(hcazucar);
-                $("#proazucar").html(proazucar);
-                $("#liazucar").html(liazucar);
-                $("#kcazucar").html(kcazucar);
+                $("#hcazucar").val(hcazucar);
+                $("#proazucar").val(proazucar);
+                $("#liazucar").val(liazucar);
+                $("#kcazucar").val(kcazucar);
+            
             });
+
+            //TOTALES BOTON CLICK
+            $("#botondesayuno").click(function(){
+                //h.c.
+                 var h1=$("#hccereal").val();
+                var h2=$("#hcleguminosas").val();
+                var h3=$("#hcleche").val();
+                var h4=$("#hccarne").val();
+                var h5=$("#hcfruta").val();
+                var h6=$("#hcvegetales").val();
+                var h7=$("#hcgrasas").val();
+                var h8=$("#hcazucar").val();
+             var totaldesayunoh = parseInt(h1)  + parseInt(h2) + parseInt(h3) + parseInt(h4) + parseInt(h5) + parseInt(h6) + parseInt(h7) + parseInt(h8);
+                $("#totaldesayunoh").html(totaldesayunoh);
+               
+
+                //Proteinas
+               
+
+                 var p1=$("#procereal").val();
+                var p2=$("#proleguminosas").val();
+                var p3=$("#proleche").val();
+                var p4=$("#procarne").val();
+                var p5=$("#profruta").val();
+                var p6=$("#provegetales").val();
+                var p7=$("#prograsas").val();
+                var p8=$("#proazucar").val();
+             var totaldesayunop = parseInt(p1)  + parseInt(p2) + parseInt(p3) + parseInt(p4) + parseInt(p5) + parseInt(p6) + parseInt(p7) + parseInt(p8);
+                $("#totaldesayunop").html(totaldesayunop);
+
+                //Lipidos
+
+                var l1=$("#licereal").val();
+                var l2=$("#lileguminosas").val();
+                var l3=$("#lileche").val();
+                var l4=$("#licarne").val();
+                var l5=$("#lifruta").val();
+                var l6=$("#livegetales").val();
+                var l7=$("#ligrasas").val();
+                var l8=$("#liazucar").val();
+             var totaldesayunol = parseInt(l1)  + parseInt(l2) + parseInt(l3) + parseInt(l4) + parseInt(l5) + parseInt(l6) + parseInt(l7) + parseInt(l8);
+                $("#totaldesayunol").html(totaldesayunol);
+
+
+//kcalorias
+                var t1=$("#kccereal").val();
+                var t2=$("#kcleguminosas").val();
+                var t3=$("#kcleche").val();
+                var t4=$("#kccarne").val();
+                var t5=$("#kcfruta").val();
+                var t6=$("#kcvegetales").val();
+                var t7=$("#kcgrasas").val();
+                var t8=$("#kcazucar").val();
+             var totaldesayunok = parseInt(t1)  + parseInt(t2) + parseInt(t3) + parseInt(t4) + parseInt(t5) + parseInt(t6) + parseInt(t7) + parseInt(t8);
+                $("#totaldesayunok").html(totaldesayunok);
+});
+
+            
 
 
 
@@ -119,7 +170,6 @@ $(document).ready(function(){
             var hctot=$("#hctot").val();
             var prottot=$("#prottot").val();
             var liptot=$("#liptot").val();
-            var kctot=0;
 
             $("#rcleche2").keyup(function(){
                 var rcleche2=$("#rcleche2").val();
@@ -127,18 +177,10 @@ $(document).ready(function(){
                 var proleche2=rcleche2*9;
                 var lileche2=rcleche2*5;
                 var kcleche2=(hcleche2*4)+(proleche2*4)+(lileche2*9);
-                if (kcleche2==0) {
-                    kctot = 0;
-                }
-                else{
-                 kctot = kctot + kcleche2;   
-                }
-                
                 $("#hcleche2").html(hcleche2);
                 $("#proleche2").html(proleche2);
                 $("#lileche2").html(lileche2);
                 $("#kcleche2").html(kcleche2);
-                $("#kctot2").html(kctot2);
             });
 
             $("#rccarne2").keyup(function(){
@@ -233,7 +275,6 @@ $(document).ready(function(){
             var hctot=$("#hctot").val();
             var prottot=$("#prottot").val();
             var liptot=$("#liptot").val();
-            var kctot=0;
 
             $("#rcleche3").keyup(function(){
                 var rcleche3=$("#rcleche3").val();
@@ -241,12 +282,7 @@ $(document).ready(function(){
                 var proleche3=rcleche3*9;
                 var lileche3=rcleche3*5;
                 var kcleche3=(hcleche3*4)+(proleche3*4)+(lileche3*9);
-                if (kcleche3==0) {
-                    kctot = 0;
-                }
-                else{
-                 kctot = kctot + kcleche3;   
-                }
+            
                 
                 $("#hcleche3").html(hcleche3);
                 $("#proleche3").html(proleche3);

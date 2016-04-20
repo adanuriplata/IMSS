@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" >
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -10,12 +10,15 @@
     <script src="{{asset('js/semantic.js')}}"></script>
 
 
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+ <script src="{{asset('js/controller.js')}}"></script>
  <script src="https://code.highcharts.com/highcharts.js"></script>
  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="{{asset('js/grafico_historial_peso.js')}}"></script>
 <script src="{{asset('js/grafico_dieta.js')}}"></script>
 <script src="{{asset('js/gastoEnergetico.js')}}"></script>
+
 
 <!-- <<<<<<< HEAD
 =======
@@ -30,7 +33,7 @@
 
     </style>
 </head>
-<body>
+<body ng-app>
 
     <div class="ui stackable menu">
         <div class="item">
