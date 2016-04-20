@@ -102,7 +102,9 @@
             
             });
 
-            //TOTALES BOTON CLICK
+            // AQUI 
+            //   INICIA 
+            //     TOTALES BOTON CLICK
             $("#botondesayuno").click(function(){
                 //h.c.
                  var h1=$("#hccereal").val();
@@ -115,12 +117,19 @@
                 var h8=$("#hcazucar").val();
              var totaldesayunoh = parseInt(h1)  + parseInt(h2) + parseInt(h3) + parseInt(h4) + parseInt(h5) + parseInt(h6) + parseInt(h7) + parseInt(h8);
                 $("#totaldesayunoh").html(totaldesayunoh);
+                $("#hgrs").val(totaldesayunoh);
+                var h9=$("#hgrs").val();
+                $("#hkcals").val(h9*4);
+                //h.c%
+                
                
+
+
 
                 //Proteinas
                
 
-                 var p1=$("#procereal").val();
+                var p1=$("#procereal").val();
                 var p2=$("#proleguminosas").val();
                 var p3=$("#proleche").val();
                 var p4=$("#procarne").val();
@@ -130,6 +139,15 @@
                 var p8=$("#proazucar").val();
              var totaldesayunop = parseInt(p1)  + parseInt(p2) + parseInt(p3) + parseInt(p4) + parseInt(p5) + parseInt(p6) + parseInt(p7) + parseInt(p8);
                 $("#totaldesayunop").html(totaldesayunop);
+                //protlipidos
+                $("#pgrs").val(totaldesayunop);
+                //protkcals
+                var p9=$("#pgrs").val();
+                $("#pkcals").val(p9*4);
+                //prot%
+
+
+
 
                 //Lipidos
 
@@ -143,6 +161,9 @@
                 var l8=$("#liazucar").val();
              var totaldesayunol = parseInt(l1)  + parseInt(l2) + parseInt(l3) + parseInt(l4) + parseInt(l5) + parseInt(l6) + parseInt(l7) + parseInt(l8);
                 $("#totaldesayunol").html(totaldesayunol);
+                $("#lgrs").val(totaldesayunol);
+                var l9=$("#lgrs").val();
+                $("#lkcals").val(l9*9);
 
 
 //kcalorias
@@ -155,7 +176,82 @@
                 var t7=$("#kcgrasas").val();
                 var t8=$("#kcazucar").val();
              var totaldesayunok = parseInt(t1)  + parseInt(t2) + parseInt(t3) + parseInt(t4) + parseInt(t5) + parseInt(t6) + parseInt(t7) + parseInt(t8);
-                $("#totaldesayunok").html(totaldesayunok);
+                $("#totaldesayunok").val(totaldesayunok);
+
+                //h.c.%
+                //hc %
+
+                var h10=$("#hkcals").val();
+                var h11=$("#totaldesayunok").val();
+                var hporciento = (parseFloat(h10) * 100) / parseFloat(h11);
+                $("#hporciento").val(parseFloat(hporciento).toFixed(2));
+
+                //Proteinas %
+                //Proteinas %
+
+
+                var p10=$("#pkcals").val();
+                var p11=$("#totaldesayunok").val();
+                var pporciento = (parseFloat(p10) * 100) / parseFloat(p11);
+                $("#pporciento").val(parseFloat(pporciento).toFixed(2));
+
+                //Lipidos %
+                //Lipidos%
+
+                    var l10=$("#lkcals").val();
+                var l11=$("#totaldesayunok").val();
+                var lporciento = (parseFloat(l10) * 100) / parseFloat(l11);
+                $("#lporciento").val(parseFloat(lporciento).toFixed(2));
+
+
+                //Inicia grafico desayuno
+                $(function () {
+    $('#graficapastel1').highcharts({
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Grafico Desayuno'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Ingesta',
+            data: [
+                ['H. de C.', hporciento],
+                {
+                    name: 'Proteinas',
+                    y: pporciento,
+                    sliced: true,
+                    selected: true
+                },
+                ['Lipidos', lporciento],
+                
+            ]
+        }]
+    });
+});
+
+
+
 });
 
             

@@ -1,49 +1,6 @@
        // inicia grafico de pastel desayuno
 
-        $(function () {
-    $('#graficapastel1').highcharts({
-        chart: {
-            type: 'pie',
-            options3d: {
-                enabled: true,
-                alpha: 45,
-                beta: 0
-            }
-        },
-        title: {
-            text: 'Grafico Desayuno'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                depth: 35,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.name}'
-                }
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Ingesta',
-            data: [
-                ['H. de C.', 20.5],
-                {
-                    name: 'Proteina',
-                    y: 21.5,
-                    sliced: true,
-                    selected: true
-                },
-                ['Lipidos', 10.5],
-                
-            ]
-        }]
-    });
-});
+        
         // fin grafica pastel desayuno
 
         // inicia grafica pastel comida

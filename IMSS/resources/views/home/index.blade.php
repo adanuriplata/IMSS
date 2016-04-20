@@ -1,6 +1,9 @@
 @extends('layout-home')
 
 <style>
+    #ocultar{
+        display: none;
+    }
     div>h4>p{
         display: inline;
     }
@@ -54,7 +57,7 @@
 
                     <div class="field">
                         <label>Dia</label>
-                        <select class="ui dropdown" name="dia" >
+                        <select class="ui dropdown" name="dia" id="dia" >
                             @for($i=1;$i<=31;$i++)
                                 <option value="{{$i}}">{{$i}}</option>
                             @endfor
@@ -62,7 +65,7 @@
                     </div>
                     <div class="field">
                         <label for="">Mes</label>
-                        <select class="ui dropdown" name="mes">
+                        <select class="ui dropdown" name="mes" id="mes">
                             @for($i=1;$i<=12;$i++)
                                 <option value="{{$i}}">{{$i}}</option>
                             @endfor
@@ -78,7 +81,7 @@
                     </div>
                     <div class="field">
                         <label>Edad</label>
-                        <input type="text" id="edad" ></input>
+                        <input type="number" id="edad" disabled></input>
                     </div>
                 </div>
                 <div class="fields">
@@ -275,7 +278,7 @@
                     <div class="active title"> <h2 class="ui dividing center aligned header"><i class="dropdown icon"></i>
                             Antecedentes Clinicos
                         </h2> </div>
-                    <div class="active content">
+                    <div class=" content">
                         <div class="ui equal width stretched stackable grid">
 
                             <div class="column">
@@ -390,7 +393,7 @@
             <div class="ui stacked segment" id="analisis">
                 <div class="ui accordion">
                     <div class="active title"> <h2 class="ui center aligned dividing header"><i class="dropdown icon"></i> Analisis de Laboratorio</h2></div>
-                    <div class="active content">
+                    <div class=" content">
                         <h3>Perfil Hematologico</h3>
                         <table class="ui small celled definition table" >
                             <thead>
@@ -537,7 +540,7 @@
                         <h2 class="ui dividing center aligned header"><i class="dropdown icon"></i>
                             Comidas
                         </h2></div>
-                    <div class="active content" >
+                    <div class=" content" >
                         <div class="ui three column stackable divided grid">
                             <div class="stretched row">
                                 <div class="nine wide column">
@@ -630,7 +633,7 @@
                                                     <td><p id="totaldesayunol"></p></td>
                                                     <td>
                                             
-                                                         <p id="totaldesayunok">  </p>
+                                                        <input type="number" id="totaldesayunok" disabled>
                                                    
                                                     </td>
                                                 </tr>
@@ -657,21 +660,21 @@
                                                     <tbody>
                                                     <tr>
                                                         <td>H. de C.</td>
-                                                        <td>?</td>
-                                                        <td>?</td>
-                                                        <td>?</td>
+                                                        <td><input type="number" id="hporciento" disabled></td>
+                                                        <td><input type="number" id="hgrs" disabled></td>
+                                                        <td><input type="number" id="hkcals" disabled></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Proteina</td>
-                                                        <td>?</td>
-                                                        <td>?</td>
-                                                        <td>?</td>
+                                                        <td><input type="number" id="pporciento" disabled></td>
+                                                        <td><input type="number" id="pgrs" disabled></td>
+                                                         <td><input type="number" id="pkcals" disabled></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Lipidos</td>
-                                                        <td>?</td>
-                                                        <td>?</td>
-                                                        <td>?</td>
+                                                        <td><input type="number" id="lporciento" disabled></td>
+                                                        <td><input type="number" id="lgrs" disabled></td>
+                                                         <td><input type="number" id="lkcals" disabled></td>
                                                     </tr>
 
                                                     </tbody>
@@ -980,7 +983,7 @@
                 </div>
             </div>
             <!-- tabla de ingesta diaria -->
-            <div class="ui stacked segment">
+            <div class="ui stacked segment" id="ocultar">
                 <div class="ui accordion">
                     <div class="active title">
                         <h2 class="ui dividing center aligned header">
@@ -988,7 +991,7 @@
                             Ingesta Diaria
                         </h2>
                     </div>
-                    <div class="active content">
+                    <div class=" content">
                         <div class="ui one column stackable divided grid">
                             <div class="stretched row">
                                 <div class="sixteen wide column">
@@ -1154,7 +1157,7 @@
                     <div class="active title">
                         <h2 class="ui center aligned dividing header"><i class="dropdown icon"></i> Gasto Energetico</h2>
                     </div>
-                    <div class="active content">
+                    <div class=" content">
 
                         <div class="field">
                             <label for="">F.A.</label>
@@ -1175,7 +1178,7 @@
                                         <tbody>
                                         <tr>
                                             <td>GEB</td>
-                                            <td><input type="text" id="geb1"></td>
+                                            <td><input type="number" id="geb1" disabled></td>
                                         </tr>
                                         <tr>
                                             <td>F.A.</td>
@@ -1183,7 +1186,7 @@
                                         </tr>
                                         <tr>
                                             <td>GET</td>
-                                            <td><input type="text" id="get1"></td>
+                                            <td><input type="number" id="get1" disabled></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -1195,7 +1198,7 @@
                                         <tbody>
                                         <tr>
                                             <td>GEB</td>
-                                            <td><input type="text" id="geb2"></td>
+                                            <td><input type="number" id="geb2" disabled></td>
                                         </tr>
                                         <tr>
                                             <td>F.A.</td>
@@ -1203,7 +1206,7 @@
                                         </tr>
                                         <tr>
                                             <td>GET</td>
-                                            <td><input type="text" id="get2"></td>
+                                            <td><input type="number" id="get2" disabled></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -1214,7 +1217,7 @@
                                         <tbody>
                                         <tr>
                                             <td>GEB</td>
-                                            <td><input type="text" id="geb3"></td>
+                                            <td><input type="number" id="geb3" disabled></td>
                                         </tr>
                                         <tr>
                                             <td>F.A.</td>
@@ -1222,7 +1225,7 @@
                                         </tr>
                                         <tr>
                                             <td>GET</td>
-                                            <td><input type="text" id="get3"></td>
+                                            <td><input type="text" id="get3" disabled></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -1233,7 +1236,7 @@
                                         <tbody>
                                         <tr>
                                             <td>GEB</td>
-                                            <td><input type="text" id="geb3"></td>
+                                            <td><input type="number" id="geb4" disabled></td>
                                         </tr>
                                         <tr>
                                             <td>F.A.</td>
@@ -1241,7 +1244,7 @@
                                         </tr>
                                         <tr>
                                             <td>GET</td>
-                                            <td><input type="text" id="get3"></td>
+                                            <td><input type="text" id="get4" disabled></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -1252,7 +1255,7 @@
                                         <tbody>
                                         <tr>
                                             <td>GEB</td>
-                                            <td><input type="text" id="geb3"></td>
+                                            <td><input type="number" id="geb5" disabled></td>
                                         </tr>
                                         <tr>
                                             <td>F.A.</td>
@@ -1260,7 +1263,7 @@
                                         </tr>
                                         <tr>
                                             <td>GET</td>
-                                            <td><input type="text" id="get3"></td>
+                                            <td><input type="text" id="get5" disabled></td>
                                         </tr>
                                         </tbody>
                                     </table>

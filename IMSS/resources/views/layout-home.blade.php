@@ -11,7 +11,7 @@
 
 
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
- <script src="{{asset('js/controller.js')}}"></script>
+ <script src="{{asset('js/calcularedad.js')}}"></script>
  <script src="https://code.highcharts.com/highcharts.js"></script>
  <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
