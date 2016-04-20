@@ -25,16 +25,21 @@ class MainController extends Controller
     public function busqueda(){
         return view('home.busqueda');
     }
+    public function consulta(Request $request){
+        if($request->ajax()){
+            return "simon";
+        }
+    }
     public function buscar(Request $request){
-        $this->validate($request,[
-            'nss'=>'required'
-        ]);
-        $paciente=DB::table('datos_generales')->select('*')->where('nss',"=",$request->input('nss'))->get();
-        if($paciente){
-            return view('home.paciente',['paciente'=>$paciente]);
+
+        $nss=$request->nss.""."%";
+        $pacientes = DB::table('datos_generales')
+            ->where('nss', 'like', $nss)
+            ->get();
+        if($pacientes != null){
+            return json_encode($pacientes);
         }else{
-            $noexiste="El paciente con el numero de seguro social: ".$request->input('nss')." "."no existe";
-            return view('home.busqueda',["noexiste"=>$noexiste]);
+            return "fail";
         }
 
     }
@@ -68,7 +73,6 @@ class MainController extends Controller
      * @return $this
      */
     public function historial(Request $request){
-
         $this->validate($request,[
             'Nombre'=>'required|string',
             'Paterno'=>'required|string',
@@ -84,10 +88,7 @@ class MainController extends Controller
             'CircunferenciaMuneca'=>'required|regex:/^[0-9]+(\.[0-9]{1,2})?$/',
             'Escolaridad'=>'required',
             'Ocupacion'=>'required'
-
-
         ]);
-
         DatosGenerales::create([
             'nombre'=>$request->input('Nombre'),
             'paterno'=>$request->input('Paterno'),
@@ -121,11 +122,7 @@ class MainController extends Controller
 
 
         }
-
-
         return view('/');
-
-
     }
 
 }

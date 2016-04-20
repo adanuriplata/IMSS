@@ -29,6 +29,11 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/historial/guardar','MainController@historial');
     Route::get('/','MainController@busqueda');
+    Route::get('/paciente/nueva-consulta/','MainController@consulta');
+    Route::get("/prueba/{nss}",function($nss) {
+        $paciente=DB::table('datos_generales')->select('*')->where('nss',"=",$nss)->get();
+        return view('home.paciente',['paciente'=>$paciente]);
+    });
     Route::post('/paciente/buscar/','MainController@buscar');
     Route::post('/paciente/guardar/consulta','MainController@datosHistorial');
     
@@ -36,4 +41,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/reporte/pdf','pdfController@reporte');
     Route::get('/impresion/formato_dos','pdfController@impresion_formato');
     Route::get('/revision/formato_dos','pdfController@formato_dos');
+
+    Route::get('imprimir/formato',function(){
+        return view('layout-formato');
+    });
 });
